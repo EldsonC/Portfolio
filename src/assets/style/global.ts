@@ -30,4 +30,24 @@ export default createGlobalStyle`
         font-family: "Inter", sans-serif;
         background-color: var(--background);
     }
+
+    /* Para navegadores WebKit (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        width: 5px; /* Largura da barra de rolagem */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--card-destaque-background); /* Cor do indicador da barra de rolagem */
+        border-radius: 6px; /* Raio de borda do indicador */
+    }
+
+    /* Para navegadores Firefox */
+    ::-moz-scrollbar {
+        width: 12px; /* Largura da barra de rolagem */
+    }
+
+    ::-moz-scrollbar-thumb {
+        background-color: var(--card-destaque-background); /* Cor do indicador da barra de rolagem */
+        border-radius: 6px; /* Raio de borda do indicador */
+    }
 `;

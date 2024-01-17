@@ -1,6 +1,7 @@
-import { Arrow } from "./assets/icons/arrow"
+import { Arrow } from "./assets/icons/arrow";
 import { Github } from "./assets/icons/github";
-import { StyleApp } from "./styleApp"
+import { StyleApp } from "./styleApp";
+import background from "./assets/img/backpc.png";
 
 interface ProjectProps {
   image: string,
@@ -35,6 +36,13 @@ function App() {
       link_github: "",
       link_site: "https://ivysoftwares.vercel.app/",
     },
+    {
+      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/portfolio.png?alt=media&token=08ff8176-6d72-4325-9117-26bed4aafd28",
+      name: "My Portfolio",
+      description: "Meu próprio portfólio para compartilhar ao mundo os meus projetos.",
+      link_github: "",
+      link_site: "https://portfolio-delta-one-71.vercel.app/",
+    },
   ] as ProjectProps[];
 
   const navigationToLink = (link: string) => {
@@ -43,6 +51,9 @@ function App() {
 
   return (
     <StyleApp>
+      <div className="background">
+        <img src={background} alt="" />
+      </div>
       <div className="hiro_container">
         <div className="arrow">
           <Arrow />

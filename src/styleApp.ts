@@ -56,6 +56,10 @@ export const StyleApp = styled.main`
         flex-direction: column;
         gap: 1rem;
 
+        .arrow-left {
+            display: none;
+        }
+
 
         h1 {
             color: var(--text-destaque-color);
@@ -199,6 +203,14 @@ export const StyleApp = styled.main`
 
         .hiro_container {
             z-index: 1;
+
+            .arrow-left {
+                display: flex;
+            } 
+            .arrow {
+                display: none;
+            } 
+
             p {
                 max-width: 22.1875rem;
             }

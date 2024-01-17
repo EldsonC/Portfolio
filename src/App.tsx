@@ -2,6 +2,7 @@ import { Arrow } from "./assets/icons/arrow";
 import { Github } from "./assets/icons/github";
 import { StyleApp } from "./styleApp";
 import background from "./assets/img/backpc.png";
+import { ArrowLeft } from "./assets/icons/arrowLeft";
 
 interface ProjectProps {
   image: string,
@@ -57,6 +58,10 @@ function App() {
       <div className="hiro_container">
         <div className="arrow">
           <Arrow />
+        </div>
+
+        <div className="arrow-left">
+          <ArrowLeft />
         </div>
         <h1>Eldson <span>Caldas</span></h1>
         <div className="container_buttons">

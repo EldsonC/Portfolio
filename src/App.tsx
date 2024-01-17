@@ -3,6 +3,8 @@ import { Github } from "./assets/icons/github";
 import { StyleApp } from "./styleApp";
 import background from "./assets/img/backpc.png";
 import { ArrowLeft } from "./assets/icons/arrowLeft";
+import { personalProjects } from "./mocks/projects";
+import { projects } from "./mocks/projects";
 
 interface ProjectProps {
   image: string,
@@ -12,46 +14,6 @@ interface ProjectProps {
   link_site: string,
 }
 function App() {
-  const projects = [
-    {
-      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoAnny.png?alt=media&token=c1fd4b74-5c1f-474e-90e3-28c92b49550f",
-      name: "AnnyApp",
-      description: "Agendamento fácil para o seu estabelecimento, além de gestão financeira.",
-      link_github: "",
-      link_site: "https://annyapp.com.br/",
-    },
-    {
-      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIrfae.png?alt=media&token=f2199be2-bcd4-4a98-9c9b-a2355f03a3e0",
-      name: "Instituto IRFAE",
-      description: "Site institucional do IRFAE, focado em cursos de teologia em Curitiba, PR.",
-      link_github: "",
-      link_site: "https://www.irfae.com.br/",
-    },
-    {
-      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIrfae.png?alt=media&token=f2199be2-bcd4-4a98-9c9b-a2355f03a3e0",
-      name: "IRFAE - Library",
-      description: "Sistema de gerenciamento de biblioteca para o IRFAE.",
-      link_github: "",
-      link_site: "https://library.irfae.com.br/",
-    },
-  ] as ProjectProps[];
-
-  const personalProjects = [
-    {
-      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIvy.png?alt=media&token=8c918baa-663c-47b8-9348-bba1bab05d55",
-      name: "IVY Softwares",
-      description: " Site empresarial para a IVY Softwares, startup de desenvolvimento.",
-      link_github: "",
-      link_site: "https://ivysoftwares.vercel.app/",
-    },
-    {
-      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/portfolio.png?alt=media&token=08ff8176-6d72-4325-9117-26bed4aafd28",
-      name: "My Portfolio",
-      description: "Meu próprio portfólio para compartilhar ao mundo os meus projetos.",
-      link_github: "https://github.com/EldsonC/Portfolio",
-      link_site: "https://portfolio-delta-one-71.vercel.app/",
-    },
-  ] as ProjectProps[];
 
   const navigationToLink = (link: string) => {
     window.location.href = link

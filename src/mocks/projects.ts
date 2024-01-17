@@ -66,4 +66,18 @@ export const personalProjects = [
         link_github: "https://github.com/Kenzie-Academy-Brasil-Developers/kenzie-hub-eldson",
         link_site: "https://kenzie-hub-eldson.vercel.app/",
     },
+    {
+        image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/openMusic.png?alt=media&token=86664760-b059-4275-9b3b-e90f43f96c30",
+        name: "Open Music",
+        description: "Uma pequena biblioteca de musicas.",
+        link_github: "https://github.com/Kenzie-Academy-Brasil-Developers/entrega-m2-open-music-eldsonc",
+        link_site: "https://kenzie-academy-brasil-developers.github.io/entrega-m2-open-music-eldsonc/",
+    },
+    {
+        image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/nukenzie.png?alt=media&token=90b7c1fe-d934-4878-b5c9-6c72bbc5e466",
+        name: "Nukenzie",
+        description: "Gerenciador de finanças pessoais.",
+        link_github: "https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s1-template-nu-kenzie-EldsonC",
+        link_site: "https://nukenzie-eldson.vercel.app/",
+    },
 ] as ProjectProps[];

@@ -221,7 +221,7 @@ export const StyleApp = styled.main`
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            gap: 3.38rem;
+            gap: 2.38rem;
 
             z-index: 1;
 
@@ -302,6 +302,65 @@ export const StyleApp = styled.main`
                             margin-right: 1.37rem;
                         }
                     }
+                }
+            }
+
+            .right {
+                width: 680px;
+
+                .container_cards {
+                    padding-top: 1rem;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 1.37rem;
+
+                    overflow-x: hidden;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .projects_container {
+            .right {
+                width: 500px;
+
+                .container_cards {
+                    padding-top: 1rem;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 1.37rem;
+
+                    overflow-x: hidden;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1600px) {
+        .projects_container {
+            .right {
+                width: 680px;
+
+                .container_cards {
+                    padding-top: 1rem;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 1.37rem;
+
+                    overflow-x: hidden;
                 }
             }
         }

@@ -74,7 +74,7 @@ function App() {
           </div>
         </div>
 
-        <div className="left">
+        <div className="left right">
           <h3>Personal Projects</h3>
           <div className="container_cards">
             {personalProjects.map((personalProject: ProjectProps) => {

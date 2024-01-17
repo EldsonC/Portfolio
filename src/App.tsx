@@ -22,10 +22,17 @@ function App() {
     },
     {
       image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIrfae.png?alt=media&token=f2199be2-bcd4-4a98-9c9b-a2355f03a3e0",
-      name: "Irfae",
+      name: "Instituto IRFAE",
       description: "Site institucional do IRFAE, focado em cursos de teologia em Curitiba, PR.",
       link_github: "",
       link_site: "https://www.irfae.com.br/",
+    },
+    {
+      image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIrfae.png?alt=media&token=f2199be2-bcd4-4a98-9c9b-a2355f03a3e0",
+      name: "IRFAE - Library",
+      description: "Sistema de gerenciamento de biblioteca para o IRFAE.",
+      link_github: "",
+      link_site: "https://library.irfae.com.br/",
     },
   ] as ProjectProps[];
 
@@ -33,7 +40,7 @@ function App() {
     {
       image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/logoIvy.png?alt=media&token=8c918baa-663c-47b8-9348-bba1bab05d55",
       name: "IVY Softwares",
-      description: " Site empresarial para a IVY Softwares, startup de desenvolvimento de softwares.",
+      description: " Site empresarial para a IVY Softwares, startup de desenvolvimento.",
       link_github: "",
       link_site: "https://ivysoftwares.vercel.app/",
     },
@@ -41,7 +48,7 @@ function App() {
       image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/portfolio.png?alt=media&token=08ff8176-6d72-4325-9117-26bed4aafd28",
       name: "My Portfolio",
       description: "Meu próprio portfólio para compartilhar ao mundo os meus projetos.",
-      link_github: "",
+      link_github: "https://github.com/EldsonC/Portfolio",
       link_site: "https://portfolio-delta-one-71.vercel.app/",
     },
   ] as ProjectProps[];
@@ -90,9 +97,9 @@ function App() {
                   <p>{project.description}</p>
 
                   <div className="btns_container">
-                    <button className="button button-card">
+                    <button className="button button-card" onClick={() => project.link_github === "" ? null : navigationToLink(project.link_github)}>
                       <Github />
-                      <p className="p-btn-card">Private</p>
+                      <p className="p-btn-card" style={{color: "white"}}>{project.link_github === "" ? "Private" : "Github"}</p>
                     </button>
 
                     <button className="button button-card secundary" onClick={() => navigationToLink(project.link_site)}>
@@ -118,9 +125,9 @@ function App() {
                   <p>{personalProject.description}</p>
 
                   <div className="btns_container">
-                    <button className="button button-card">
+                    <button className="button button-card" onClick={() => personalProject.link_github === "" ? null : navigationToLink(personalProject.link_github)}>
                       <Github />
-                      <p className="p-btn-card">Private</p>
+                      <p className="p-btn-card" style={{color: "white"}}>{personalProject.link_github === "" ? "Private" : "Github"}</p>
                     </button>
 
                     <button className="button button-card secundary" onClick={() => navigationToLink(personalProject.link_site)}>

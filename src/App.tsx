@@ -9,9 +9,12 @@ import { Load } from "./components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "./components/sidebar";
 import { MenuIcon } from "./assets/icons/menu";
-import { hide, show, stateSideBar } from "./redux/sidebar";
+import { stateSideBar } from "./redux/sidebar";
+import { hide as hideMobile, show as showMobile } from "./redux/sidebarMobile";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { statesidebarmobile } from "./redux/sidebarMobile";
+import { SideBarMobile } from "./components/sidebarmobile";
 
 interface ProjectProps {
   image: string,
@@ -25,6 +28,7 @@ function App() {
   const dispatch = useDispatch();
   const [ loadState, setLoadState ] = useState(true);
   const stateSide = useSelector(stateSideBar);
+  const stateSideMobile = useSelector(statesidebarmobile);
 
   const navigationToLink = (link: string) => {
     const newWindow = window.open(link, '_blank');
@@ -39,18 +43,17 @@ function App() {
     }, 5000)
   }, [])
 
-  const showSidebar = () => {
-    if (!stateSide) {
-        dispatch(show());
+  const showSidebarMobile = () => {
+    if (!stateSideMobile) {
+      dispatch(showMobile());
     } else {
-      
-        dispatch(hide());
-      
+      dispatch(hideMobile());
     }
   };
 
   return (
     <>
+      {stateSideMobile ? <SideBarMobile/> : null}
       {loadState ? <Load/> : null}
       <StyleApp>
         <div id="side" className={stateSide ? "side" : "side-hide"}>
@@ -63,7 +66,7 @@ function App() {
           <div className="hiro_container">
             <div className="header">
               <h1>Eldson <span>Caldas</span></h1>
-              <button onClick={() => showSidebar()}>
+              <button onClick={() => showSidebarMobile()}>
                 <MenuIcon/>
               </button>
             </div>

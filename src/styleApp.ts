@@ -111,7 +111,7 @@ export const StyleApp = styled.main`
                 justify-content: space-between;
     
                 button {
-                    display: none;
+                    display: flex;
                     background-color: transparent;
                 }
             }

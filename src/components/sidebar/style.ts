@@ -29,13 +29,23 @@ export const SideBarStyle = styled.div`
     }
     .top {
       display: flex;
+      flex: 1;
       flex-direction: column;
       gap: 1rem;
 
+      overflow-y: scroll;
+      position: relative;
+
       .header {
+        padding-bottom: 10px;
         display: flex;
         align-items: center;
         gap: 10px;
+
+        position: sticky;
+        top: 0px;
+
+        background-color: #000000;
 
         p {
           color: #d1d1d1;

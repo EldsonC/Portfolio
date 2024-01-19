@@ -36,11 +36,11 @@ export default createGlobalStyle`
 
     /* Para navegadores WebKit (Chrome, Safari) */
     ::-webkit-scrollbar {
-        width: 5px; /* Largura da barra de rolagem */
+        width: 0px; /* Largura da barra de rolagem */
     }
 
     ::-webkit-scrollbar-thumb {
-        background-color: var(--card-destaque-background); /* Cor do indicador da barra de rolagem */
+        background-color: #272727; /* Cor do indicador da barra de rolagem */
         border-radius: 6px; /* Raio de borda do indicador */
     }
 
@@ -50,7 +50,7 @@ export default createGlobalStyle`
     }
 
     ::-moz-scrollbar-thumb {
-        background-color: var(--card-destaque-background); /* Cor do indicador da barra de rolagem */
+        background-color: #272727; /* Cor do indicador da barra de rolagem */
         border-radius: 6px; /* Raio de borda do indicador */
     }
 `;

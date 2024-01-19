@@ -31,6 +31,7 @@ export default createGlobalStyle`
     body, html {
         font-family: "Inter", sans-serif;
         background-color: var(--background);
+        overflow-x: hidden;
     }
 
     /* Para navegadores WebKit (Chrome, Safari) */

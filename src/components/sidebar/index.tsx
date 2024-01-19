@@ -14,6 +14,12 @@ export function SideBar() {
     const stateSide = useSelector(stateSideBar);
     const [colorButton, setColorButton] = useState(false);
 
+    const myEmail = "eldson.caldasw@gmail.com";
+
+    const handleEmailClick = () => {
+        window.location.href = `mailto:${myEmail}`;
+    }
+
     const showSidebar = () => {
         const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
         const sideElement = document.querySelector("#sideBtn") as HTMLButtonElement;
@@ -70,7 +76,7 @@ export function SideBar() {
                                 <p>+4 years of experience</p>
                             </div>
                         </div>
-                        <button>
+                        <button onClick={handleEmailClick}>
                             <EmailIcon/>
                             <p>Contato</p>
                         </button>

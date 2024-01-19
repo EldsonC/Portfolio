@@ -27,7 +27,10 @@ function App() {
   const stateSide = useSelector(stateSideBar);
 
   const navigationToLink = (link: string) => {
-    window.location.href = link
+    const newWindow = window.open(link, '_blank');
+    if (newWindow) {
+        newWindow.opener = null;
+    }
   };
 
   useEffect(() => {

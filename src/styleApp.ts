@@ -21,11 +21,28 @@ export const StyleApp = styled.main`
     .side-hide {
         width: 30px;
         height: 100%;
+
+        animation: sideAnimationRemove 1s forwards;
     }
 
     @keyframes sideAnimation {
         from {
             width: 0px;
+        }
+
+        to {
+            width: 250px;
+        }
+
+    }
+
+    @keyframes sideAnimationRemove {
+        from {
+            width: 250px;
+        }
+
+        to {
+            width: 30px;
         }
 
     }

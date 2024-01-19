@@ -1,10 +1,13 @@
 import { RightIcon } from "../../assets/icons/right";
 import { SideBarStyle } from "./style";
+import logo from "../../assets/img/portfolio.png";
 // import cat from "../../assets/img/cat.gif";
 import { hide, show, stateSideBar } from "../../redux/sidebar";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { EmailIcon } from "../../assets/icons/email";
+import { MagicIcon } from "../../assets/icons/magic";
 
 export function SideBar() {
     const dispatch = useDispatch();
@@ -12,18 +15,23 @@ export function SideBar() {
     const [colorButton, setColorButton] = useState(false);
 
     const showSidebar = () => {
+        const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
+        const sideElement = document.querySelector("#sideBtn") as HTMLButtonElement;
         if (!stateSide) {
             dispatch(show());
-            const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
             btnElement.style.rotate = "0deg";
             btnElement.style.paddingLeft = "0px";
             btnElement.style.paddingRight = "15px";
         } else {
-            dispatch(hide());
-            const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
+            sideElement.classList.add("remove-side");
+            
             btnElement.style.rotate = "180deg";
             btnElement.style.paddingLeft = "15px";
             btnElement.style.paddingRight = "0px";
+
+            
+            dispatch(hide());
+
         }
     };
 
@@ -33,6 +41,7 @@ export function SideBar() {
         if (stateSide) {
             tagElement.innerText = "Hide sidebar"
         }
+
         tagElement.classList.replace("tag_sidebar-hide", "tag_sidebar");
         setColorButton(true);
     };
@@ -46,8 +55,26 @@ export function SideBar() {
     return (
         <SideBarStyle>
             {stateSide ? (
-                <div className="container_side">
-
+                <div className="container_side" id="side_cont">
+                    <div className="top">
+                        <div className="header">
+                            <img src={logo} width={30} alt="logo" />
+                            <p>FullStack Pleno</p>
+                        </div>
+                    </div>
+                    <div className="bottom">
+                        <div className="star">
+                            <MagicIcon/>
+                            <div className="text">
+                                <h4>Experience duration</h4>
+                                <p>+4 years of experience</p>
+                            </div>
+                        </div>
+                        <button>
+                            <EmailIcon/>
+                            <p>Contato</p>
+                        </button>
+                    </div>
                 </div>
             ) : null}
             <div className="right_btn">

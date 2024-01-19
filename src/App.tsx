@@ -40,7 +40,9 @@ function App() {
     if (!stateSide) {
         dispatch(show());
     } else {
+      
         dispatch(hide());
+      
     }
   };
 
@@ -48,7 +50,7 @@ function App() {
     <>
       {loadState ? <Load/> : null}
       <StyleApp>
-        <div className={stateSide ? "side" : "side-hide"}>
+        <div id="side" className={stateSide ? "side" : "side-hide"}>
           <SideBar/> 
         </div>
         <div className="content">

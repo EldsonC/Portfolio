@@ -3,12 +3,25 @@ import styled from "styled-components";
 export const StyleApp = styled.main`
     width: 100vw;
     height: 100vh;
-
+ 
     display: flex;
     flex-direction: flex;
 
     .khtaUK:nth-last-child(1) {
         margin-right: 0px;
+    }
+
+    .container_notify {
+        max-width: 100%;
+
+        position: fixed;
+        top: 30px;
+        right: 30px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
  
     .side {
@@ -228,6 +241,9 @@ export const StyleApp = styled.main`
         }
 
         @media screen and (max-width: 600px) {       
+            .container_notify {
+                display: none;
+            }
             .projects_container {
                 padding-top: 32px;
             }
@@ -235,6 +251,7 @@ export const StyleApp = styled.main`
         }
     
         @media screen and (min-width: 540px) {
+
             margin: 0 auto;
             padding-left: 0;
             padding-top: 3.75rem;
@@ -338,6 +355,18 @@ export const StyleApp = styled.main`
         }
     
         @media screen and (min-width: 1200px) {
+            .container_notify {
+                max-width: 100%;
+
+                position: fixed;
+                top: 30px;
+                right: 30px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
             .projects_container {
                 .right {
                     flex: 1;

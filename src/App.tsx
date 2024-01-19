@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { statesidebarmobile } from "./redux/sidebarMobile";
 import { SideBarMobile } from "./components/sidebarmobile";
 import { CloseIcon } from "./assets/icons/close";
+import { Notify } from "./components/notify";
 
 interface ProjectProps {
   image: string,
@@ -23,6 +24,11 @@ interface ProjectProps {
   description: string,
   link_github: string,
   link_site: string,
+};
+
+interface NotifyProps {
+  title: string;
+  description: string;
 };
 
 function App() {
@@ -52,11 +58,29 @@ function App() {
     }
   };
 
+  const notification = [
+    {
+      title: "Wellcome",
+      description: "Bem-vindo ao meu portifolio"
+    },
+  ] as NotifyProps[];
+
   return (
     <>
       {stateSideMobile ? <SideBarMobile/> : null}
       {loadState ? <Load/> : null}
       <StyleApp>
+        <div className="container_notify">
+          {notification.map((data:NotifyProps, index: number) => {
+            return (
+              <Notify
+                id={`notify${index}`}
+                title={data.title}
+                description={data.description}
+              />
+            );
+          })}
+        </div>
         <div id="side" className={stateSide ? "side" : "side-hide"}>
           <SideBar/> 
         </div>

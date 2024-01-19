@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideBarStyle = styled.div`
-  width: 100vw;
+  width: auto;
   height: 100vh;
 
   position: fixed;
@@ -12,7 +12,7 @@ export const SideBarStyle = styled.div`
 
   
   .container_side {
-    width: 320px;
+    width: 250px;
     height: 100%;
     
     background-color: #000000;
@@ -24,7 +24,6 @@ export const SideBarStyle = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    width: 100vw;
     height: 100vh;
 
     position: fixed;
@@ -32,6 +31,8 @@ export const SideBarStyle = styled.div`
     left: 0;
 
     display: flex;
+
+    z-index: 1000;
 
 
     .right_btn {
@@ -47,6 +48,21 @@ export const SideBarStyle = styled.div`
         background-color: transparent;
         cursor: pointer;
       }
+
+      .tag_sidebar {
+        padding: 10px 10px;
+        background-color: black;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+
+        border-radius: 10px;
+      }
+
+      .tag_sidebar-hide {
+        display: none;
+      }
+
     }
   }
 

@@ -13,7 +13,7 @@ export const StyleLoad = styled.div `
     align-items: center;
 
     background-color: var(--background);
-    z-index: 1000;
+    z-index: 1500;
 
     .conteiner_load {
         img {

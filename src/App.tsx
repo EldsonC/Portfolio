@@ -9,8 +9,9 @@ import { Load } from "./components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "./components/sidebar";
 import { MenuIcon } from "./assets/icons/menu";
-import { stateSideBar } from "./redux/sidebar";
+import { hide, show, stateSideBar } from "./redux/sidebar";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 interface ProjectProps {
   image: string,
@@ -21,6 +22,7 @@ interface ProjectProps {
 };
 
 function App() {
+  const dispatch = useDispatch();
   const [ loadState, setLoadState ] = useState(true);
   const stateSide = useSelector(stateSideBar);
 
@@ -33,6 +35,14 @@ function App() {
       setLoadState(false)
     }, 5000)
   }, [])
+
+  const showSidebar = () => {
+    if (!stateSide) {
+        dispatch(show());
+    } else {
+        dispatch(hide());
+    }
+  };
 
   return (
     <>
@@ -48,7 +58,7 @@ function App() {
           <div className="hiro_container">
             <div className="header">
               <h1>Eldson <span>Caldas</span></h1>
-              <button>
+              <button onClick={() => showSidebar()}>
                 <MenuIcon/>
               </button>
             </div>

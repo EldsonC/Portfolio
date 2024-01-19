@@ -12,7 +12,7 @@ export const StyleApp = styled.main`
     }
  
     .side {
-        width: 320px;
+        width: 250px;
         height: 100%; 
 
         animation: sideAnimation 1s forwards;
@@ -31,6 +31,7 @@ export const StyleApp = styled.main`
     }
     
     .content {
+        padding-top: 32px;
         width: calc(100% - 320px);
         max-width: 100%;
         height: 100%;
@@ -93,6 +94,7 @@ export const StyleApp = styled.main`
                 justify-content: space-between;
     
                 button {
+                    display: none;
                     background-color: transparent;
                 }
             }
@@ -206,6 +208,13 @@ export const StyleApp = styled.main`
                     }
                 }
             }
+        }
+
+        @media screen and (max-width: 490px) {       
+            .projects_container {
+                padding-top: 32px;
+            }
+            
         }
     
         @media screen and (min-width: 540px) {
@@ -332,7 +341,7 @@ export const StyleApp = styled.main`
             }
         }
     
-        @media screen and (min-width: 1600px) {
+        @media screen and (min-width: 1600px) { 
             .projects_container {
                 .left {
                     .container_cards {

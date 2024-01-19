@@ -29,16 +29,7 @@ export const StyleApp = styled.main`
             margin-right: 30px;
         }
         .container_notify {
-            max-width: 100%;
-
-            position: fixed;
-            top: 80px;
-            right: 20px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            display: none;
         }
     }
  
@@ -259,9 +250,6 @@ export const StyleApp = styled.main`
         }
 
         @media screen and (max-width: 600px) {       
-            &.container_notify {
-                display: none;
-            }
             .projects_container {
                 padding-top: 32px;
             }
@@ -373,18 +361,6 @@ export const StyleApp = styled.main`
         }
     
         @media screen and (min-width: 1200px) {
-            .container_notify {
-                max-width: 100%;
-
-                position: fixed;
-                top: 30px;
-                right: 30px;
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
             .projects_container {
                 .right {
                     flex: 1;
@@ -431,5 +407,4 @@ export const StyleApp = styled.main`
             }
         }
     }
-
 `;

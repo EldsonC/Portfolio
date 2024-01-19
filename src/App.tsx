@@ -9,7 +9,7 @@ import { Load } from "./components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "./components/sidebar";
 import { MenuIcon } from "./assets/icons/menu";
-import { stateSideBar } from "./redux/sidebar";
+import { hide, show, stateSideBar } from "./redux/sidebar";
 import { hide as hideMobile, show as showMobile } from "./redux/sidebarMobile";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -33,41 +33,52 @@ interface NotifyProps {
 
 function App() {
   const dispatch = useDispatch();
-  const [ loadState, setLoadState ] = useState(true);
+  const [loadState, setLoadState] = useState(true);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
 
   const navigationToLink = (link: string) => {
     const newWindow = window.open(link, '_blank');
     if (newWindow) {
-        newWindow.opener = null;
+      newWindow.opener = null;
     }
   };
-  const [ scrollY, setScrollY ] = useState<number>(0); 
 
-  useEffect(() => {
-      const handleScroll = () => {
-          setScrollY(window.scrollY);
-      }
 
-      if (scrollY >= 200) {
-          
-      } else {
-          
-      }
+  const showSidebar = () => {
+    const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
+    const sideElement = document.querySelector("#sideBtn") as HTMLButtonElement;
+    if (!stateSide) {
+      dispatch(show());
+      btnElement.style.rotate = "0deg";
+      btnElement.style.paddingLeft = "0px";
+      btnElement.style.paddingRight = "15px";
+      localStorage.setItem("sidebar", JSON.stringify(true));
+    } else {
+      sideElement.classList.add("remove-side");
 
-      window.addEventListener("scroll", handleScroll)
-      return () => {
-          window.removeEventListener("scroll", handleScroll)
-      }
-  }, [scrollY])
+      btnElement.style.rotate = "180deg";
+      btnElement.style.paddingLeft = "15px";
+      btnElement.style.paddingRight = "0px";
+      localStorage.setItem("sidebar", JSON.stringify(false));
 
-  console.log(scrollY)
+      dispatch(hide());
+    }
+  };
+
+  const showKey = (key: KeyboardEvent) => {
+    if (key.code === "BracketRight") {
+      showSidebar();
+    }
+  };
+
 
   useEffect(() => {
     setTimeout(() => {
       setLoadState(false)
     }, 5000)
+
+    window.addEventListener("keydown", (key) => showKey(key))
   }, [])
 
   const showSidebarMobile = () => {
@@ -87,13 +98,14 @@ function App() {
 
   return (
     <>
-      {stateSideMobile ? <SideBarMobile/> : null}
-      {loadState ? <Load/> : null}
+      {stateSideMobile ? <SideBarMobile /> : null}
+      {loadState ? <Load /> : null}
       <StyleApp>
         <div className="container_notify">
-          {notification.map((data:NotifyProps, index: number) => {
+          {notification.map((data: NotifyProps, index: number) => {
             return (
               <Notify
+                key={index}
                 id={`notify${index}`}
                 title={data.title}
                 description={data.description}
@@ -102,7 +114,7 @@ function App() {
           })}
         </div>
         <div id="side" className={stateSide ? "side" : "side-hide"}>
-          <SideBar/> 
+          <SideBar />
         </div>
         <div className="content">
           <div className="background">
@@ -112,7 +124,7 @@ function App() {
             <div className="header">
               <h1>Eldson <span>Caldas</span></h1>
               <button onClick={() => showSidebarMobile()}>
-                {stateSideMobile ? <CloseIcon/> : <MenuIcon/>}
+                {stateSideMobile ? <CloseIcon /> : <MenuIcon />}
               </button>
             </div>
             <div className="container_buttons">
@@ -131,9 +143,10 @@ function App() {
             <div className="left">
               <h3>Top Projects</h3>
               <div className="container_cards">
-                {projects.map((project: ProjectProps) => {
+                {projects.map((project: ProjectProps, key) => {
                   return (
                     <Card
+                      key={key}
                       image={project.image}
                       name={project.name}
                       description={project.description}
@@ -148,9 +161,10 @@ function App() {
             <div className="left right">
               <h3>Personal Projects</h3>
               <div className="container_cards">
-                {personalProjects.map((personalProject: ProjectProps) => {
+                {personalProjects.map((personalProject: ProjectProps, key) => {
                   return (
                     <Card
+                      key={key}
                       image={personalProject.image}
                       name={personalProject.name}
                       description={personalProject.description}

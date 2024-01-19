@@ -35,6 +35,7 @@ export function SideBar() {
     const showSidebar = () => {
         const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
         const sideElement = document.querySelector("#sideBtn") as HTMLButtonElement;
+        
         if (!stateSide) {
             dispatch(show());
             btnElement.style.rotate = "0deg";
@@ -55,9 +56,14 @@ export function SideBar() {
 
     const hoverTagBtn = () => {
         const tagElement = document.querySelector("#tag") as HTMLLabelElement;
+        const sideHoverElement = document.querySelector("#side_cont") as HTMLDivElement;
 
         if (stateSide) {
-            tagElement.innerText = "Hide sidebar"
+            tagElement.innerText = "Hide sidebar";
+            sideHoverElement.style.filter = "opacity(0.3)";
+            sideHoverElement.style.transition = "0.5s"
+        } else {
+            tagElement.innerText = "Open sidebar"
         }
 
         tagElement.classList.replace("tag_sidebar-hide", "tag_sidebar");
@@ -65,9 +71,13 @@ export function SideBar() {
     };
 
     const hideHoverTagBtn = () => {
+        const sideHoverElement = document.querySelector("#side_cont") as HTMLDivElement;
+
         const tagElement = document.querySelector("#tag") as HTMLLabelElement;
         tagElement.classList.replace("tag_sidebar", "tag_sidebar-hide");
+        
         setColorButton(false);
+        sideHoverElement.style.filter = "opacity(1)"
     };
 
     return (
@@ -81,9 +91,9 @@ export function SideBar() {
                         </div>
                         <label className="head_label">Front-End</label>
                         <div className="container_skills">
-                            {skills.map((skill:SkillProps) => {
+                            {skills.map((skill:SkillProps, key) => {
                                 return (
-                                    <div className="skill">
+                                    <div className="skill" key={key}>
                                         <p>{skill.name}</p>
                                         <span>
                                             <SkillIcon/>
@@ -95,9 +105,9 @@ export function SideBar() {
 
                         <label className="head_label">Back-End</label>
                         <div className="container_skills">
-                            {skillsBack.map((skillBack:SkillProps) => {
+                            {skillsBack.map((skillBack:SkillProps, key) => {
                                 return (
-                                    <div className="skill">
+                                    <div className="skill" key={key}>
                                         <p>{skillBack.name}</p>
                                         <span>
                                             <SkillIcon/>
@@ -130,12 +140,13 @@ export function SideBar() {
                     id="sideBtn"
                     onClick={() => showSidebar()}
                     onMouseOver={() => hoverTagBtn()}
-                    onMouseLeave={() => hideHoverTagBtn()}>
+                    onMouseLeave={() => hideHoverTagBtn()}
+                    >
                     <RightIcon
                         color={colorButton ? "#FFFFFF" : ""}
                     />
                 </button>
-                <label id="tag" className="tag_sidebar-hide">Open sidebar</label>
+                <label id="tag" className="tag_sidebar-hide"></label>
             </div>
         </SideBarStyle>
     );

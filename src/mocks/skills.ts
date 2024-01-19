@@ -10,13 +10,13 @@ export  const skills = [
         name: "JavaScript (ES6+)",
     },
     {
-        name: "JavaScript",
+        name: "TypeScript",
     },
     {
         name: "Responsive Design",
     },
     {
-        name: "ReactJs - Angular",
+        name: "ReactJs",
     },
     {
         name: "Version Control/Git",

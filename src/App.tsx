@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { statesidebarmobile } from "./redux/sidebarMobile";
 import { SideBarMobile } from "./components/sidebarmobile";
+import { CloseIcon } from "./assets/icons/close";
 
 interface ProjectProps {
   image: string,
@@ -67,7 +68,7 @@ function App() {
             <div className="header">
               <h1>Eldson <span>Caldas</span></h1>
               <button onClick={() => showSidebarMobile()}>
-                <MenuIcon/>
+                {stateSideMobile ? <CloseIcon/> : <MenuIcon/>}
               </button>
             </div>
             <div className="container_buttons">

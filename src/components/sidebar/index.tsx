@@ -98,20 +98,6 @@ export function SideBar() {
                                 );
                             })}
                         </div>
-
-                        <label className="head_label">Soft Skills</label>
-                        <div className="container_skills">
-                            {skillsBack.map((skillBack:SkillProps) => {
-                                return (
-                                    <div className="skill">
-                                        <p>{skillBack.name}</p>
-                                        <span>
-                                            <SkillIcon/>
-                                        </span>
-                                    </div>
-                                );
-                            })}
-                        </div>
                     </div>
                     <div className="bottom">
                         <div className="pet">

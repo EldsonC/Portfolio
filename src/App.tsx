@@ -33,7 +33,7 @@ interface NotifyProps {
 
 function App() {
   const dispatch = useDispatch();
-  const [ loadState, setLoadState ] = useState(false);
+  const [ loadState, setLoadState ] = useState(true);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
 
@@ -68,8 +68,6 @@ function App() {
     setTimeout(() => {
       setLoadState(false)
     }, 5000)
-
-
   }, [])
 
   const showSidebarMobile = () => {

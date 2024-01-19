@@ -18,7 +18,10 @@ export function Card({
 }: ProjectProps) {
 
     const navigationToLink = (link: string) => {
-        window.location.href = link
+        const newWindow = window.open(link, '_blank');
+        if (newWindow) {
+            newWindow.opener = null;
+        }
     };
 
     return (

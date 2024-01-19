@@ -44,6 +44,53 @@ export const SideBarStyle = styled.div`
         }
 
       }
+
+      .head_label {
+        margin-top: 16px;
+        padding-left: 10px;
+        color: #646464;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .container_skills {
+        display: flex;
+        flex-direction: column;
+
+        .skill {
+          padding: 0 10px;
+          width: calc(100% - 20px);
+          height: 40px;
+  
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+  
+          background-color: transparent;
+          border-radius: 10px;
+  
+          cursor: pointer;
+  
+          p {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+          }
+  
+          span {
+            display: none;
+          }
+  
+          &:hover {
+            background-color: #202123;
+  
+            span {
+              display: flex;
+            }
+          }
+        }
+      }
+
     }
 
     .bottom {
@@ -51,6 +98,17 @@ export const SideBarStyle = styled.div`
       display: flex;
       flex-direction: column;
       gap: 1rem;
+
+      .pet {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+
+        img {
+          width: 150px;
+        }
+      }
 
       .star {
         display: flex;

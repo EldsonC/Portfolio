@@ -1,13 +1,19 @@
 import { RightIcon } from "../../assets/icons/right";
 import { SideBarStyle } from "./style";
 import logo from "../../assets/img/portfolio.png";
-// import cat from "../../assets/img/cat.gif";
+import cat from "../../assets/img/logo.gif";
 import { hide, show, stateSideBar } from "../../redux/sidebar";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { EmailIcon } from "../../assets/icons/email";
 import { MagicIcon } from "../../assets/icons/magic";
+import { SkillIcon } from "../../assets/icons/skill";
+import { skills, skillsBack } from "../../mocks/skills";
+
+interface SkillProps {
+    name: string;
+}
 
 export function SideBar() {
     const dispatch = useDispatch();
@@ -35,9 +41,7 @@ export function SideBar() {
             btnElement.style.paddingLeft = "15px";
             btnElement.style.paddingRight = "0px";
 
-            
             dispatch(hide());
-
         }
     };
 
@@ -67,8 +71,38 @@ export function SideBar() {
                             <img src={logo} width={30} alt="logo" />
                             <p>FullStack Pleno</p>
                         </div>
+                        <label className="head_label">Front-End</label>
+                        <div className="container_skills">
+                            {skills.map((skill:SkillProps) => {
+                                return (
+                                    <div className="skill">
+                                        <p>{skill.name}</p>
+                                        <span>
+                                            <SkillIcon/>
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <label className="head_label">Back-End</label>
+                        <div className="container_skills">
+                            {skillsBack.map((skillBack:SkillProps) => {
+                                return (
+                                    <div className="skill">
+                                        <p>{skillBack.name}</p>
+                                        <span>
+                                            <SkillIcon/>
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
                     <div className="bottom">
+                        <div className="pet">
+                            <img src={cat} alt="" />
+                        </div>
                         <div className="star">
                             <MagicIcon/>
                             <div className="text">

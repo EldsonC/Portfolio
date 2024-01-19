@@ -24,6 +24,8 @@ export default createGlobalStyle`
 
         --card-background: #222222;
         --card-destaque-background: #2B2B2B;
+
+        --card-border: #2E2E2E;
     }
 
     body, html {

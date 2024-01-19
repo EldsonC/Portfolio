@@ -1,10 +1,16 @@
-import { Arrow } from "./assets/icons/arrow";
-import { Github } from "./assets/icons/github";
+// import { Arrow } from "./assets/icons/arrow";
 import { StyleApp } from "./styleApp";
 import background from "./assets/img/backpc.png";
-import { ArrowLeft } from "./assets/icons/arrowLeft";
+// import { ArrowLeft } from "./assets/icons/arrowLeft";
 import { personalProjects } from "./mocks/projects";
 import { projects } from "./mocks/projects";
+import { Card } from "./components/card";
+import { Load } from "./components/load";
+import { useEffect, useState } from "react";
+import { SideBar } from "./components/sidebar";
+import { MenuIcon } from "./assets/icons/menu";
+import { stateSideBar } from "./redux/sidebar";
+import { useSelector } from "react-redux";
 
 interface ProjectProps {
   image: string,
@@ -12,98 +18,91 @@ interface ProjectProps {
   description: string,
   link_github: string,
   link_site: string,
-}
+};
+
 function App() {
+  const [ loadState, setLoadState ] = useState(true);
+  const stateSide = useSelector(stateSideBar);
 
   const navigationToLink = (link: string) => {
     window.location.href = link
-  }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadState(false)
+    }, 5000)
+  }, [])
 
   return (
-    <StyleApp>
-      <div className="background">
-        <img src={background} alt="" />
-      </div>
-      <div className="hiro_container">
-        <div className="arrow">
-          <Arrow />
+    <>
+      {loadState ? <Load/> : null}
+      <StyleApp>
+        <div className={stateSide ? "side" : "side-hide"}>
+          <SideBar/> 
         </div>
+        <div className="content">
+          <div className="background">
+            <img src={background} alt="" />
+          </div>
+          <div className="hiro_container">
+            <div className="header">
+              <h1>Eldson <span>Caldas</span></h1>
+              <button>
+                <MenuIcon/>
+              </button>
+            </div>
+            <div className="container_buttons">
+              <button className="button" onClick={() => navigationToLink("https://github.com/EldsonC")}>
+                <p className="p-btn">Github</p>
+              </button>
 
-        <div className="arrow-left">
-          <ArrowLeft />
-        </div>
-        <h1>Eldson <span>Caldas</span></h1>
-        <div className="container_buttons">
-          <button className="button" onClick={() => navigationToLink("https://github.com/EldsonC")}>
-            <p className="p-btn">Github</p>
-          </button>
+              <button className="button secundary" onClick={() => navigationToLink("https://www.linkedin.com/in/eldsonc/")}>
+                <p className="p-btn p-btn-secundary">Linkedin</p>
+              </button>
+            </div>
+            <p>Conheça Eldson, um entusiasta apaixonado pela tecnologia e sempre ávido por desafios inovadores.</p>
+          </div>
 
-          <button className="button secundary" onClick={() => navigationToLink("https://www.linkedin.com/in/eldsonc/")}>
-            <p className="p-btn p-btn-secundary">Linkedin</p>
-          </button>
-        </div>
-        <p>Conheça Eldson, um entusiasta apaixonado pela tecnologia e sempre ávido por desafios inovadores.</p>
-      </div>
+          <div className="projects_container">
+            <div className="left">
+              <h3>Top Projects</h3>
+              <div className="container_cards">
+                {projects.map((project: ProjectProps) => {
+                  return (
+                    <Card
+                      image={project.image}
+                      name={project.name}
+                      description={project.description}
+                      link_github={project.link_github}
+                      link_site={project.link_site}
+                    />
+                  );
+                })}
+              </div>
+            </div>
 
-      <div className="projects_container">
-        <div className="left">
-          <h3>Top Projects</h3>
-          <div className="container_cards">
-            {projects.map((project: ProjectProps) => {
-              return (
-                <div className="card">
-                  <div className="image_project">
-                    <img src={project.image} alt="" />
-                  </div>
-                  <h2>{project.name}</h2>
-                  <p>{project.description}</p>
-
-                  <div className="btns_container">
-                    <button className="button button-card" onClick={() => project.link_github === "" ? null : navigationToLink(project.link_github)}>
-                      <Github />
-                      <p className="p-btn-card" style={{color: "white"}}>{project.link_github === "" ? "Private" : "Github"}</p>
-                    </button>
-
-                    <button className="button button-card secundary" onClick={() => navigationToLink(project.link_site)}>
-                      <p className="p-btn-secundary-card">Site</p>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+            <div className="left right">
+              <h3>Personal Projects</h3>
+              <div className="container_cards">
+                {personalProjects.map((personalProject: ProjectProps) => {
+                  return (
+                    <Card
+                      image={personalProject.image}
+                      name={personalProject.name}
+                      description={personalProject.description}
+                      link_github={personalProject.link_github}
+                      link_site={personalProject.link_site}
+                    />
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
+      </StyleApp>
+    </>
+  );
+};
 
-        <div className="left right">
-          <h3>Personal Projects</h3>
-          <div className="container_cards">
-            {personalProjects.map((personalProject: ProjectProps) => {
-              return (
-                <div className="card">
-                  <div className="image_project">
-                    <img src={personalProject.image} alt="" />
-                  </div>
-                  <h2>{personalProject.name}</h2>
-                  <p>{personalProject.description}</p>
-
-                  <div className="btns_container">
-                    <button className="button button-card" onClick={() => personalProject.link_github === "" ? null : navigationToLink(personalProject.link_github)}>
-                      <Github />
-                      <p className="p-btn-card" style={{color: "white"}}>{personalProject.link_github === "" ? "Private" : "Github"}</p>
-                    </button>
-
-                    <button className="button button-card secundary" onClick={() => navigationToLink(personalProject.link_site)}>
-                      <p className="p-btn-secundary-card">Site</p>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </StyleApp>
-  )
-}
-
-export default App
+export default App;

@@ -23,6 +23,24 @@ export const StyleApp = styled.main`
         align-items: center;
         gap: 1rem;
     }
+
+    @media screen and (max-width: 600px) {
+        .khtaUK:nth-last-child(1) {
+            margin-right: 30px;
+        }
+        .container_notify {
+            max-width: 100%;
+
+            position: fixed;
+            top: 80px;
+            right: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
  
     .side {
         width: 250px;
@@ -64,7 +82,7 @@ export const StyleApp = styled.main`
         padding-top: 32px;
         width: calc(100% - 320px);
         max-width: 100%;
-        height: 100%;
+        height: auto;
 
         flex: 1;
         /* background-color: red; */
@@ -241,7 +259,7 @@ export const StyleApp = styled.main`
         }
 
         @media screen and (max-width: 600px) {       
-            .container_notify {
+            &.container_notify {
                 display: none;
             }
             .projects_container {

@@ -14,6 +14,8 @@ export function Load() {
         setTimeout(() => {
             removeLoad();
         }, 3000);
+
+        localStorage.setItem("sidebar", JSON.stringify(false));
     }, []);
 
     return (

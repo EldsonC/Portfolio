@@ -31,7 +31,13 @@ export default createGlobalStyle`
     body, html {
         font-family: "Inter", sans-serif;
         background-color: var(--background);
-        overflow-x: hidden;
+        overflow-X: hidden;
+        overflow-y: scroll;
+    }
+
+    ::selection {
+        background-color: #d352d3; /* Cor de fundo da seleção */
+        color: #fff; /* Cor do texto selecionado */
     }
 
     /* Para navegadores WebKit (Chrome, Safari) */

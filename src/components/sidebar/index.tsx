@@ -19,12 +19,18 @@ export function SideBar() {
     const dispatch = useDispatch();
     const stateSide = useSelector(stateSideBar);
     const [colorButton, setColorButton] = useState(false);
+    // const [ persistSide, setPersistSide ] = useState(false);
 
     const myEmail = "eldson.caldasw@gmail.com";
 
     const handleEmailClick = () => {
         window.location.href = `mailto:${myEmail}`;
     }
+
+    // useEffect(() => {
+    //     const stateSide = JSON.parse(localStorage.getItem("sidebar") || "false");
+    //     setPersistSide(stateSide);
+    // },[])
 
     const showSidebar = () => {
         const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
@@ -34,12 +40,14 @@ export function SideBar() {
             btnElement.style.rotate = "0deg";
             btnElement.style.paddingLeft = "0px";
             btnElement.style.paddingRight = "15px";
+            localStorage.setItem("sidebar", JSON.stringify(true));
         } else {
             sideElement.classList.add("remove-side");
             
             btnElement.style.rotate = "180deg";
             btnElement.style.paddingLeft = "15px";
             btnElement.style.paddingRight = "0px";
+            localStorage.setItem("sidebar", JSON.stringify(false));
 
             dispatch(hide());
         }

@@ -33,7 +33,7 @@ interface NotifyProps {
 
 function App() {
   const dispatch = useDispatch();
-  const [ loadState, setLoadState ] = useState(true);
+  const [ loadState, setLoadState ] = useState(false);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
 
@@ -43,11 +43,33 @@ function App() {
         newWindow.opener = null;
     }
   };
+  const [ scrollY, setScrollY ] = useState<number>(0); 
+
+  useEffect(() => {
+      const handleScroll = () => {
+          setScrollY(window.scrollY);
+      }
+
+      if (scrollY >= 200) {
+          
+      } else {
+          
+      }
+
+      window.addEventListener("scroll", handleScroll)
+      return () => {
+          window.removeEventListener("scroll", handleScroll)
+      }
+  }, [scrollY])
+
+  console.log(scrollY)
 
   useEffect(() => {
     setTimeout(() => {
       setLoadState(false)
     }, 5000)
+
+
   }, [])
 
   const showSidebarMobile = () => {

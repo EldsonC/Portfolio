@@ -227,7 +227,7 @@ export const StyleApp = styled.main`
             }
         }
 
-        @media screen and (max-width: 490px) {       
+        @media screen and (max-width: 600px) {       
             .projects_container {
                 padding-top: 32px;
             }

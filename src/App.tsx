@@ -84,7 +84,7 @@ function App() {
 
     api.post("/send-sms", {
       toNumber: "+5544999814053",
-      message: `Olá, grande raparigo! Uma nova visita às ${hours}h${minutes}.`
+      message: `Olá, grande raparigo! Uma nova visita às ${hours}:${minutes}.`
     }).then(() => {
       console.log("Enviado com sucesso!");
     }).catch((err:any) => {

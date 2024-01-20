@@ -35,7 +35,7 @@ export function Load() {
     return (
         <StyleLoad id="load">
             <div className="conteiner_load">
-                <img src={logo} alt="logo" />
+                <img src={logo} width={80} alt="logo" />
             </div>
         </StyleLoad>
     );

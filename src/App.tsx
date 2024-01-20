@@ -17,7 +17,6 @@ import { statesidebarmobile } from "./redux/sidebarMobile";
 import { SideBarMobile } from "./components/sidebarmobile";
 import { CloseIcon } from "./assets/icons/close";
 import { Notify } from "./components/notify";
-import { api } from "./services/api";
 
 interface ProjectProps {
   image: string,
@@ -76,25 +75,8 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoadState(false)
-    }, 5000)
-
-    const now: Date = new Date();
-    const hours: number = now.getHours();
-    const minutes: number = now.getMinutes();
-
-    api.post("/send-sms", {
-      toNumber: "+5544999814053",
-      message: `Olá, grande raparigo! Uma nova visita às ${hours}:${minutes}.`
-    }).then(() => {
-      console.log("Enviado com sucesso!");
-    }).catch((err:any) => {
-      console.log(err);
-    });
-
-
-
-    window.addEventListener("keydown", (key) => showKey(key))
-  }, [])
+    }, 5000);
+  }, [window.addEventListener("keydown", (key) => showKey(key))]);
 
   const showSidebarMobile = () => {
     if (!stateSideMobile) {

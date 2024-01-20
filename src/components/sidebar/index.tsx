@@ -35,7 +35,7 @@ export function SideBar() {
     const showSidebar = () => {
         const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;
         const sideElement = document.querySelector("#sideBtn") as HTMLButtonElement;
-        
+
         if (!stateSide) {
             dispatch(show());
             btnElement.style.rotate = "0deg";
@@ -44,7 +44,7 @@ export function SideBar() {
             localStorage.setItem("sidebar", JSON.stringify(true));
         } else {
             sideElement.classList.add("remove-side");
-            
+
             btnElement.style.rotate = "180deg";
             btnElement.style.paddingLeft = "15px";
             btnElement.style.paddingRight = "0px";
@@ -75,7 +75,7 @@ export function SideBar() {
 
         const tagElement = document.querySelector("#tag") as HTMLLabelElement;
         tagElement.classList.replace("tag_sidebar", "tag_sidebar-hide");
-        
+
         setColorButton(false);
         sideHoverElement.style.filter = "opacity(1)"
     };
@@ -91,12 +91,12 @@ export function SideBar() {
                         </div>
                         <label className="head_label">Front-End</label>
                         <div className="container_skills">
-                            {skills.map((skill:SkillProps, key) => {
+                            {skills.map((skill: SkillProps, key) => {
                                 return (
                                     <div className="skill" key={key}>
                                         <p>{skill.name}</p>
                                         <span>
-                                            <SkillIcon/>
+                                            <SkillIcon />
                                         </span>
                                     </div>
                                 );
@@ -105,12 +105,12 @@ export function SideBar() {
 
                         <label className="head_label">Back-End</label>
                         <div className="container_skills">
-                            {skillsBack.map((skillBack:SkillProps, key) => {
+                            {skillsBack.map((skillBack: SkillProps, key) => {
                                 return (
                                     <div className="skill" key={key}>
                                         <p>{skillBack.name}</p>
                                         <span>
-                                            <SkillIcon/>
+                                            <SkillIcon />
                                         </span>
                                     </div>
                                 );
@@ -122,14 +122,14 @@ export function SideBar() {
                             <img src={cat} alt="" />
                         </div>
                         <div className="star">
-                            <MagicIcon/>
+                            <MagicIcon />
                             <div className="text">
                                 <h4>Experience duration</h4>
                                 <p>+4 years of experience</p>
                             </div>
                         </div>
                         <button onClick={handleEmailClick}>
-                            <EmailIcon/>
+                            <EmailIcon />
                             <p>Contact-me</p>
                         </button>
                     </div>
@@ -141,7 +141,7 @@ export function SideBar() {
                     onClick={() => showSidebar()}
                     onMouseOver={() => hoverTagBtn()}
                     onMouseLeave={() => hideHoverTagBtn()}
-                    >
+                >
                     <RightIcon
                         color={colorButton ? "#FFFFFF" : ""}
                     />

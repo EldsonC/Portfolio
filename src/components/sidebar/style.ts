@@ -202,15 +202,16 @@ export const SideBarStyle = styled.div`
 
       .tag_sidebar {
         padding: 10px 10px;
-        background-color: black;
         color: white;
         font-size: 14px;
         font-weight: 500;
-
+        
         border-radius: 10px;
+        background: #000;
+        box-shadow: 0px 0px 19.4px 0px rgba(0, 0, 0, 0.25);
 
         &::before {
-          content: "Press (])";
+          content: "Press ]";
           display: flex;
 
           height: 20px;

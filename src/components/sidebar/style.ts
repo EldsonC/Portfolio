@@ -182,9 +182,7 @@ export const SideBarStyle = styled.div`
     left: 0;
 
     display: flex;
-
     z-index: 1000;
-
 
     .right_btn {
       padding-left: 10px;
@@ -205,18 +203,29 @@ export const SideBarStyle = styled.div`
         color: white;
         font-size: 14px;
         font-weight: 500;
+
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 5px;
         
         border-radius: 10px;
         background: #000;
         box-shadow: 0px 0px 19.4px 0px rgba(0, 0, 0, 0.25);
 
         &::before {
-          content: "Press ]";
+          content: "CTRL+B";
+          padding: 0 5px;
           display: flex;
+          align-items: center;
 
-          height: 20px;
+          height: 25px;
           font-size: 10px;
           color: grey;
+
+          background-color: #242424;
+          border: 1px solid #2E2E2E;
+          border-radius: 5px;
         }
       }
 

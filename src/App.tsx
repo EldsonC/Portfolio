@@ -67,9 +67,13 @@ function App() {
   };
 
   const showKey = (key: KeyboardEvent) => {
-    if (key.code === "BracketRight") {
+    if (key.ctrlKey && key.key === "b") {
       showSidebar();
-    }
+    };
+
+    if (key.ctrlKey && key.key === "m") {
+      alert("Funcionou")
+    };
   };
 
   useEffect(() => {

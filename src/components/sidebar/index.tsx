@@ -19,18 +19,12 @@ export function SideBar() {
     const dispatch = useDispatch();
     const stateSide = useSelector(stateSideBar);
     const [colorButton, setColorButton] = useState(false);
-    // const [ persistSide, setPersistSide ] = useState(false);
 
     const myEmail = "eldson.caldasw@gmail.com";
 
     const handleEmailClick = () => {
         window.location.href = `mailto:${myEmail}`;
     }
-
-    // useEffect(() => {
-    //     const stateSide = JSON.parse(localStorage.getItem("sidebar") || "false");
-    //     setPersistSide(stateSide);
-    // },[])
 
     const showSidebar = () => {
         const btnElement = document.querySelector("#sideBtn") as HTMLButtonElement;

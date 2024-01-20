@@ -151,12 +151,12 @@ function App() {
                 <p className="p-btn p-btn-secundary">Linkedin</p>
               </button>
             </div>
-            <p>Conheça Eldson, um entusiasta apaixonado pela tecnologia e sempre ávido por desafios inovadores.</p>
+            <p>Meet Eldson, a technology enthusiast with a passion for innovation and a constant eagerness for new challenges.</p>
           </div>
 
           <div className="projects_container">
             <div className="left">
-              <h3>Top Projects</h3>
+              <h3>Top projects</h3>
               <div className="container_cards">
                 {projects.map((project: ProjectProps, key) => {
                   return (
@@ -174,7 +174,7 @@ function App() {
             </div>
 
             <div className="left right">
-              <h3>Personal Projects</h3>
+              <h3>Personal projects</h3>
               <div className="container_cards">
                 {personalProjects.map((personalProject: ProjectProps, key) => {
                   return (

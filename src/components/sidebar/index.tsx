@@ -63,7 +63,7 @@ export function SideBar() {
             sideHoverElement.style.filter = "opacity(0.3)";
             sideHoverElement.style.transition = "0.5s"
         } else {
-            tagElement.innerText = "Open sidebar"
+            tagElement.innerText = "Open sidebar";
         }
 
         tagElement.classList.replace("tag_sidebar-hide", "tag_sidebar");
@@ -130,7 +130,7 @@ export function SideBar() {
                         </div>
                         <button onClick={handleEmailClick}>
                             <EmailIcon/>
-                            <p>Contato</p>
+                            <p>Contact-me</p>
                         </button>
                     </div>
                 </div>

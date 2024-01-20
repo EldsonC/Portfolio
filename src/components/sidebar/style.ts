@@ -28,6 +28,7 @@ export const SideBarStyle = styled.div`
     .remove-side {
       animation: sideAnimationRemove 1s forwards;
     }
+
     .top {
       display: flex;
       flex: 1;
@@ -207,6 +208,15 @@ export const SideBarStyle = styled.div`
         font-weight: 500;
 
         border-radius: 10px;
+
+        &::before {
+          content: "Press (])";
+          display: flex;
+
+          height: 20px;
+          font-size: 10px;
+          color: grey;
+        }
       }
 
       .tag_sidebar-hide {

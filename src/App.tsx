@@ -17,6 +17,7 @@ import { statesidebarmobile } from "./redux/sidebarMobile";
 import { SideBarMobile } from "./components/sidebarmobile";
 import { CloseIcon } from "./assets/icons/close";
 import { Notify } from "./components/notify";
+import { api } from "./services/api";
 
 interface ProjectProps {
   image: string,
@@ -77,6 +78,17 @@ function App() {
     setTimeout(() => {
       setLoadState(false)
     }, 5000)
+
+    api.post("/send-sms", {
+      toNumber: "5544999814053",
+      message: "Olá, grande raparigo, você tem um novo visitante no seu portfólio!"
+    }).then(() => {
+      alert("Enviado com sucesso!");
+    }).catch((err:any) => {
+      console.log(err)
+    })
+
+
 
     window.addEventListener("keydown", (key) => showKey(key))
   }, [])

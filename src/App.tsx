@@ -134,7 +134,7 @@ function App() {
       {loadState ? <Load /> : null}
       <StyleApp>
         <div className="back_spline-hide" id="spline">
-          <spline-viewer url="https://prod.spline.design/vajx1YPrEiTNBjuT/scene.splinecode"></spline-viewer>
+          <spline-viewer url="https://prod.spline.design/ScUBWw-SBz68a3os/scene.splinecode"></spline-viewer>
         </div>
         <div className="container_notify">
           {notification.map((data: NotifyProps, index: number) => {

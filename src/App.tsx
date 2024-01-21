@@ -159,7 +159,7 @@ function App() {
             <div className="header">
               <div className="head_cont">
                 <h1>Eldson <span>Caldas</span></h1>
-                <label>Play with back CTRL+M</label>
+                <label>CTRL+M</label>
               </div>
               <button onClick={() => showSidebarMobile()}>
                 {stateSideMobile ? <CloseIcon /> : <MenuIcon />}

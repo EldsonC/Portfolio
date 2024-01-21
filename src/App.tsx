@@ -9,7 +9,7 @@ import { Load } from "./components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "./components/sidebar";
 import { MenuIcon } from "./assets/icons/menu";
-import { hide, show, slice, stateSideBar } from "./redux/sidebar";
+import { hide, show, stateSideBar } from "./redux/sidebar";
 import { hide as hideMobile, show as showMobile } from "./redux/sidebarMobile";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

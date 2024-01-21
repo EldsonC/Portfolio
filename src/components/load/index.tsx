@@ -2,8 +2,6 @@ import { StyleLoad } from "./style";
 import logo from "../../assets/img/portfolio.png";
 import { useEffect } from "react";
 import { api } from "../../services/api";
-// import logo from "../../assets/img/cat.gif";
-// import logo from "../../assets/img/logo.gif";
 
 export function Load() {
     const removeLoad = () => {

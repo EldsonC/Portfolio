@@ -11,6 +11,48 @@ export const StyleApp = styled.main`
         margin-right: 0px;
     }
 
+    .background_spline {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+    }
+
+    .remove-content {
+        animation: removeContent 2s forwards;
+    }
+
+    .show-content {
+        animation: showContent 2s forwards;
+    }
+
+    @keyframes removeContent {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateY(-500px);
+        }
+    }
+
+    @keyframes showContent {
+        from {
+            opacity: 0;
+            transform: translateY(-500px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .back_spline-hide {
+        display: none;
+    }
+
     .container_notify {
         max-width: 100%;
 
@@ -81,7 +123,7 @@ export const StyleApp = styled.main`
         .background {
             display: none;
         }
-    
+
         .button {
             padding: 0.88rem 2.19rem;
             border-radius: 0.5rem;
@@ -137,18 +179,36 @@ export const StyleApp = styled.main`
                     background-color: transparent;
                 }
             }
-    
-    
-            h1 {
-                color: var(--text-destaque-color);
-                font-size: 30px;
-                font-weight: 600;
-                
-                span {
-                    color: var(--text-grey-100);
-                    font-weight: 300;
+
+            .head_cont {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                h1 {
+                    color: var(--text-destaque-color);
+                    font-size: 30px;
+                    font-weight: 600;
+                    
+                    span {
+                        color: var(--text-grey-100);
+                        font-weight: 300;
+                    }
+                }
+
+                label {
+                    padding: 5px 10px;
+                    border-radius: 5px;
+
+                    font-size: 12px;
+                    color: grey;
+
+                    background-color: var(--card-background);
+                    border: 1px solid var(--card-border);
                 }
             }
+    
+    
     
             .container_buttons {
                 display: flex;
@@ -257,7 +317,6 @@ export const StyleApp = styled.main`
         }
     
         @media screen and (min-width: 540px) {
-
             margin: 0 auto;
             padding-left: 0;
             padding-top: 3.75rem;

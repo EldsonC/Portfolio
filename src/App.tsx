@@ -9,7 +9,7 @@ import { Load } from "./components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "./components/sidebar";
 import { MenuIcon } from "./assets/icons/menu";
-import { hide, show, stateSideBar } from "./redux/sidebar";
+import { hide, show, slice, stateSideBar } from "./redux/sidebar";
 import { hide as hideMobile, show as showMobile } from "./redux/sidebarMobile";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -34,6 +34,7 @@ interface NotifyProps {
 function App() {
   const dispatch = useDispatch();
   const [loadState, setLoadState] = useState(true);
+  const [spline, setSpline] = useState(false);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
 
@@ -72,7 +73,36 @@ function App() {
     };
 
     if (key.ctrlKey && key.key === "m") {
-      alert("Funcionou")
+      
+      if (!spline) {
+        const spline = document.querySelector("#spline") as HTMLDivElement;
+        const content = document.querySelector("#content") as HTMLDivElement;
+        spline.classList.toggle("background_spline", true);
+        spline.classList.toggle("back_spline-hide", false);
+        content.classList.add("remove-content");
+        content.classList.remove("show-content");
+
+        content.style.zIndex = "500";
+        spline.style.zIndex = "1000";
+        
+
+        setSpline(true);
+      } else {
+        const spline = document.querySelector("#spline") as HTMLDivElement;
+        const content = document.querySelector("#content") as HTMLDivElement;
+        spline.classList.toggle("background_spline", false);
+        spline.classList.toggle("back_spline-hide", true);
+        content.classList.add("show-content");
+        content.classList.remove("remove-content");
+
+        setTimeout(() => {
+            content.classList.remove("show-content");
+        }, 2000)
+
+        setSpline(false);
+      }
+
+
     };
   };
 
@@ -102,6 +132,9 @@ function App() {
       {stateSideMobile ? <SideBarMobile /> : null}
       {loadState ? <Load /> : null}
       <StyleApp>
+        <div className="back_spline-hide" id="spline">
+          <spline-viewer url="https://prod.spline.design/8LUd9zuioJxxgxse/scene.splinecode"></spline-viewer>
+        </div>
         <div className="container_notify">
           {notification.map((data: NotifyProps, index: number) => {
             return (
@@ -117,13 +150,16 @@ function App() {
         <div id="side" className={stateSide ? "side" : "side-hide"}>
           <SideBar />
         </div>
-        <div className="content">
+        <div className="content" id="content">
           <div className="background">
             <img src={background} alt="" />
           </div>
           <div className="hiro_container">
             <div className="header">
-              <h1>Eldson <span>Caldas</span></h1>
+              <div className="head_cont">
+                <h1>Eldson <span>Caldas</span></h1>
+                <label>Play with back CTRL+M</label>
+              </div>
               <button onClick={() => showSidebarMobile()}>
                 {stateSideMobile ? <CloseIcon /> : <MenuIcon />}
               </button>

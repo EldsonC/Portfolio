@@ -78,11 +78,11 @@ function App() {
         const spline = document.querySelector("#spline") as HTMLDivElement;
         const content = document.querySelector("#content") as HTMLDivElement;
         spline.classList.toggle("background_spline", true);
+        spline.classList.add("show-content");
         spline.classList.toggle("back_spline-hide", false);
         content.classList.add("remove-content");
         content.classList.remove("show-content");
 
-        content.style.zIndex = "500";
         spline.style.zIndex = "1000";
         
 
@@ -91,6 +91,7 @@ function App() {
         const spline = document.querySelector("#spline") as HTMLDivElement;
         const content = document.querySelector("#content") as HTMLDivElement;
         spline.classList.toggle("background_spline", false);
+        spline.classList.add("remove-content");
         spline.classList.toggle("back_spline-hide", true);
         content.classList.add("show-content");
         content.classList.remove("remove-content");
@@ -133,7 +134,7 @@ function App() {
       {loadState ? <Load /> : null}
       <StyleApp>
         <div className="back_spline-hide" id="spline">
-          <spline-viewer url="https://prod.spline.design/8LUd9zuioJxxgxse/scene.splinecode"></spline-viewer>
+          <spline-viewer url="https://prod.spline.design/vajx1YPrEiTNBjuT/scene.splinecode"></spline-viewer>
         </div>
         <div className="container_notify">
           {notification.map((data: NotifyProps, index: number) => {

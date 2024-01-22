@@ -67,11 +67,18 @@ export const StyleApp = styled.main`
     }
 
     @media screen and (max-width: 600px) {
-        .khtaUK:nth-last-child(1) {
-            margin-right: 30px;
-        }
-        .container_notify {
-            display: none;
+
+        .show-tip-container {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: fixed;
+
+            background-color: #000000b0;
         }
     }
  

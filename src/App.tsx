@@ -16,7 +16,8 @@ import { useDispatch } from "react-redux";
 import { statesidebarmobile } from "./redux/sidebarMobile";
 import { SideBarMobile } from "./components/sidebarmobile";
 import { CloseIcon } from "./assets/icons/close";
-import { Notify } from "./components/notify";
+// import { Notify } from "./components/notify";
+import { Tips } from "./components/tips";
 
 interface ProjectProps {
   image: string,
@@ -26,10 +27,10 @@ interface ProjectProps {
   link_site: string,
 };
 
-interface NotifyProps {
-  title: string;
-  description: string;
-};
+// interface NotifyProps {
+//   title: string;
+//   description: string;
+// };
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
   const [spline, setSpline] = useState(false);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
+  const [ stateTip, setStateTip ] = useState(false);
 
   const navigationToLink = (link: string) => {
     const newWindow = window.open(link, '_blank');
@@ -111,6 +113,18 @@ function App() {
     setTimeout(() => {
       setLoadState(false)
     }, 5000);
+    
+    const stateTip = localStorage.getItem("tipState");
+    if (stateTip) {
+      setStateTip(false);
+    }
+    setTimeout(() => {
+      if (!stateTip) {
+        setStateTip(true);
+      }
+    }, 5000)
+
+   
   }, [window.addEventListener("keydown", (key) => showKey(key))]);
 
   const showSidebarMobile = () => {
@@ -121,22 +135,25 @@ function App() {
     }
   };
 
-  const notification = [
-    {
-      title: "Wellcome",
-      description: "Bem-vindo ao meu portifolio"
-    },
-  ] as NotifyProps[];
+  // const notification = [
+  //   {
+  //     title: "Wellcome",
+  //     description: "Bem-vindo ao meu portifolio"
+  //   },
+  // ] as NotifyProps[];
 
   return (
     <>
       {stateSideMobile ? <SideBarMobile /> : null}
       {loadState ? <Load /> : null}
       <StyleApp>
+        <div id="container_tip" className={stateTip ? "show-tip-container" : ""}>
+          {stateTip ? <Tips/> : null}
+        </div>
         <div className="back_spline-hide" id="spline">
           <spline-viewer url="https://prod.spline.design/ScUBWw-SBz68a3os/scene.splinecode"></spline-viewer>
         </div>
-        <div className="container_notify">
+        {/* <div className="container_notify">
           {notification.map((data: NotifyProps, index: number) => {
             return (
               <Notify
@@ -147,7 +164,7 @@ function App() {
               />
             );
           })}
-        </div>
+        </div> */}
         <div id="side" className={stateSide ? "side" : "side-hide"}>
           <SideBar />
         </div>

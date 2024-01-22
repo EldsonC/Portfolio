@@ -80,4 +80,11 @@ export const personalProjects = [
         link_github: "https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s1-template-nu-kenzie-EldsonC",
         link_site: "https://nukenzie-eldson.vercel.app/",
     },
+    {
+        image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/onote.png?alt=media&token=f8f7448b-3c0b-4e81-8f6b-850e4d4a9f95",
+        name: "Onote",
+        description: "Write notes and organize your day.",
+        link_github: "https://github.com/EldsonC/Onote",
+        link_site: "https://onote.vercel.app/",
+    },
 ] as ProjectProps[];

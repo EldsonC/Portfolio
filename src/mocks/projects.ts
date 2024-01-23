@@ -87,4 +87,11 @@ export const personalProjects = [
         link_github: "https://github.com/EldsonC/Onote",
         link_site: "https://onote.vercel.app/",
     },
+    {
+        image: "https://firebasestorage.googleapis.com/v0/b/marya-4c963.appspot.com/o/geekWorld.png?alt=media&token=2d33573f-9bd6-4462-a5de-158b8738bed7",
+        name: "GeekWorld",
+        description: "A simple geek catalog.",
+        link_github: "https://github.com/Kenzie-Academy-Brasil-Developers/m1-catalogo-geek-template-EldsonC",
+        link_site: "https://m1-catalogo-geek-template-eldson-c.vercel.app/",
+    },
 ] as ProjectProps[];

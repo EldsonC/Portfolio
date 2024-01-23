@@ -45,14 +45,48 @@ export function Load() {
         //     console.log(err);
         // });
 
-        api.post("/send-email", {
-            email: "eldson.caldasw@gmail.com",
-            message: `Olá, grande raparigo! Uma nova visita às ${hours}:${minutes} do dispositivo ${getOperatingSystem()}.`
-        }).then(() => {
-            console.log("Email enviado com sucesso!");
-        }).catch((err: any) => {
-            console.log(err);
-        });
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    api.post("/send-email", {
+                        email: "eldson.caldasw@gmail.com",
+                        message: `Uma nova visita às ${hours}:${minutes} do dispositivo ${getOperatingSystem()}.`,
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    }, {timeout: 30000}).then(() => {
+                        console.log("Email enviado com sucesso!");
+                    }).catch((err: any) => {
+                        console.log(err);
+                    });
+                },
+                (error) => {
+                    console.error('Erro ao obter a localização:', error);
+                    api.post("/send-email", {
+                        email: "eldson.caldasw@gmail.com",
+                        message: `Uma nova visita às ${hours}:${minutes} do dispositivo ${getOperatingSystem()}.`,
+                        latitude: "0",
+                        longitude: "0"
+                    }, {timeout: 30000}).then(() => {
+                        console.log("Email enviado com sucesso!");
+                    }).catch((err: any) => {
+                        console.log(err);
+                    });
+                }
+            );
+        } else {
+            console.log('Geolocalização não suportada pelo navegador.');
+            api.post("/send-email", {
+                email: "eldson.caldasw@gmail.com",
+                message: `Uma nova visita às ${hours}:${minutes} do dispositivo ${getOperatingSystem()}.`,
+                latitude: "0",
+                longitude: "0"
+            }, {timeout: 30000}).then(() => {
+                console.log("Email enviado com sucesso!");
+            }).catch((err: any) => {
+                console.log(err);
+            });
+        }
+
 
         localStorage.setItem("sidebar", JSON.stringify(false));
     }, []);

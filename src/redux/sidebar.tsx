@@ -9,7 +9,7 @@ interface Cookies {
 export const slice = createSlice({
     name: "sidebar",
     initialState: {
-        state: false
+        state: true
     },
 
     reducers: {

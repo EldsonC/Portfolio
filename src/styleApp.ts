@@ -66,8 +66,23 @@ export const StyleApp = styled.main`
         gap: 1rem;
     }
 
+    
+    .side {
+        width: 250px;
+        height: 100%; 
+        
+        animation: sideAnimation 1s forwards;
+    } 
+    
     @media screen and (max-width: 600px) {
+        .side {
+            display: none;
+        }
 
+        .content {
+            padding-left: 20px;
+        }
+        
         .show-tip-container {
             width: 100vw;
             height: 100vh;
@@ -78,17 +93,11 @@ export const StyleApp = styled.main`
 
             position: fixed;
 
+            z-index: 1500;
+
             background-color: #000000b0;
         }
     }
- 
-    .side {
-        width: 250px;
-        height: 100%; 
-
-        animation: sideAnimation 1s forwards;
-    } 
-
     .side-hide {
         width: 30px;
         height: 100%;

@@ -13,6 +13,8 @@ export const CardStyle = styled.div`
     border: 1px solid var(--card-border);
     background-color: var(--card-background);
 
+    /* cursor: pointer; */
+
     .image_project {
         width: 3.9375rem;
         min-height: 3.9375rem;
@@ -51,8 +53,8 @@ export const CardStyle = styled.div`
         align-items: center;
         gap: 0.62rem;
     }
-
-    &:nth-last-child(1) {
-        margin-right: 1.37rem;
-    }               
+    
+    &:hover {
+        border: 1px solid #464646;
+    }
 `;

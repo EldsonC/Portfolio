@@ -98,6 +98,7 @@ export const StyleApp = styled.main`
             background-color: #000000b0;
         }
     }
+
     .side-hide {
         width: 30px;
         height: 100%;
@@ -134,7 +135,6 @@ export const StyleApp = styled.main`
         height: auto;
 
         flex: 1;
-        /* background-color: red; */
 
         .background {
             display: none;

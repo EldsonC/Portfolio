@@ -196,7 +196,7 @@ function App() {
 
           <div className="projects_container">
             <div className="left">
-              <h3>Top projects</h3>
+              <h3>Top works</h3>
               <div className="container_cards">
                 {projects.map((project: ProjectProps, key) => {
                   return (

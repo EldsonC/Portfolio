@@ -7,17 +7,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { zodSignIn } from "../../services/zod";
 import { useAuth } from "../../context/context";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export function SignIn() {
-    const { signIn } = useAuth();
+    const { signIn, userLogged } = useAuth();
 
     const navigation = useNavigate();
 
-    // useEffect(() => {
-    //     if (userLogged()) {
-    //         navigation("/dashboard/schedule")
-    //     }
-    // }, [])
+    useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem("@USER:token") || "[]")
+
+        if (userLogged()) {
+            navigation(`/port/dashboard/${userData.name}`)
+        }
+    }, [])
 
     const {
         register,

@@ -79,6 +79,9 @@ export const StyleApp = styled.main`
             display: none;
         }
 
+        .mob-game {
+            display: none;
+        }
         .content {
             padding-left: 20px;
         }

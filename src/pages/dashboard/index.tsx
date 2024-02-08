@@ -1,9 +1,5 @@
-// import { Arrow } from "./assets/icons/arrow";
 import { StyleApp } from "./styleApp";
 import background from "../../assets/img/backpc.png";
-// import { ArrowLeft } from "./assets/icons/arrowLeft";
-// import { personalProjects } from "../../mocks/projects";
-// import { projects } from "../../mocks/projects";
 import { Card } from "../../components/card";
 import { Load } from "../../components/load";
 import { useEffect, useState } from "react";
@@ -27,7 +23,6 @@ import { AddIcon } from "../../assets/icons/add";
 import { AddModal } from "../../components/addmodal";
 
 import { stateAddproject, show as showAdd } from "../../redux/addproject";
-import { LogoutIcon } from "../../assets/icons/logout";
 import { SettingsIcon } from "../../assets/icons/settings";
 import { BellIcon } from "../../assets/icons/bell";
 
@@ -176,15 +171,11 @@ export function Dashboard() {
           <div className="hiro_container">
             <div className="header">
               <div className="head_cont">
-                <h1>Eldson <span>Caldas</span></h1>
-                <label>CTRL+M</label>
+                <h1>{paramas.id_user} <span>Prev</span></h1>
+                <label className="mob-game">CTRL+M</label>
               </div>
 
               <div className="admin_btns">
-                <button className="admin_button" title="Logout">
-                  <LogoutIcon/>
-                </button>
-
                 <button className="admin_button">
                   <SettingsIcon/>
                 </button>

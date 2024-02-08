@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://send-email-self.vercel.app/",
-  // baseURL: "http://localhost:3002",
+  // baseURL: "https://send-email-self.vercel.app/",
+  baseURL: "http://localhost:3000",
 });

@@ -2,12 +2,15 @@ import { StyleLoad } from "./style";
 import logo from "../../assets/img/portfolio.png";
 import { useEffect } from "react";
 import { api } from "../../services/api";
+import { useParams } from "react-router-dom";
 
 export function Load() {
     const removeLoad = () => {
         const loadElement = document.querySelector("#load") as HTMLDivElement;
         loadElement.classList.add("removeLoad");
     };
+
+    const params = useParams();
 
     const getOperatingSystem = (): string => {
         const platform = navigator.platform.toLowerCase();
@@ -31,6 +34,9 @@ export function Load() {
         setTimeout(() => {
             removeLoad();
         }, 3000);
+
+        const titlePage = document.querySelector("#title") as HTMLTitleElement;
+        titlePage.innerText = `Portifolio | ${params.id_user}`
 
         const now: Date = new Date();
         const hours: number = now.getHours();

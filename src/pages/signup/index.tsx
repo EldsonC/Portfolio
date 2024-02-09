@@ -4,50 +4,51 @@ import { LogoSignIcon } from "../../assets/icons/logo-sign";
 import { GoogleIcon } from "../../assets/icons/google";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { zodSignIn } from "../../services/zod";
-import { useAuth } from "../../context/context";
+import { zodSchema } from "../../services/zod";
+
+import arrow from "../../assets/img/arrowWhite.png";
+
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+import { useState } from "react";
 import { Load } from "../../components/load";
 
-export function SignIn() {
-    const { signIn, userLogged } = useAuth();
-    const [loadState, setLoadState] = useState(false);
-
+export function SignUp() {
     const navigation = useNavigate();
-
-    useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem("@USER:token") || "[]")
-
-        if (userLogged()) {
-            navigation(`/port/dashboard/${userData.name}`)
-        }
-    }, [])
+    const [ loadState, setLoadState ] = useState(false);
 
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm({
-        resolver: zodResolver(zodSignIn)
+        resolver: zodResolver(zodSchema)
     });
 
     const ApiSubmit: SubmitHandler<FieldValues> = async (data) => {
         setLoadState(true);
+        const nameString = data.name;
+        const name = nameString.replace(/ /g, "_");
 
-        await signIn({
+        const dataUser = {
+            name: name,
             email: data.email,
             password: data.password
+        }
+
+        localStorage.setItem("@MRY:register", JSON.stringify(dataUser));
+
+        await api.post("/code", {
+            email: data.email
         })
-            .then((result: any) => {
-                navigation(`/port/dashboard/${result.name}`);
-            })
-            .catch(() => {
-                setLoadState(false);
-            })
-            .finally(() => {
-                setLoadState(false);
-            })
+        .then(() => {
+            navigation("/sign-up/code");
+        }).catch(() => {
+            setLoadState(false);
+        })
+        .finally(() => {
+            setLoadState(false);
+        })
     }
 
     return (
@@ -55,13 +56,13 @@ export function SignIn() {
             {loadState ? <Load/> : null}
             <SignInStyle>
                 <div className="login_container">
-                    <div onClick={() => navigation("/")} style={{ cursor: "pointer" }}>
+                    <div  onClick={() => navigation("/")} style={{cursor: "pointer"}}>
                         <LogoSignIcon />
                     </div>
 
                     <div className="first_text">
-                        <h1>Sign In</h1>
-                        <p>Wellcome back</p>
+                        <h1>Get started</h1>
+                        <p>Create your account now</p>
                     </div>
 
                     <form onSubmit={handleSubmit(ApiSubmit)}>
@@ -77,10 +78,22 @@ export function SignIn() {
                         </div>
 
                         <div className="input_">
+                            <label htmlFor="">Username</label>
+                            <input 
+                                type="text" 
+                                placeholder="example: John_doe" 
+                                {...register("name")}
+                            />
+                        </div>
+                        {errors.name ? <p className="error_label">{typeof errors.name.message === "string" ? (
+                            <span>{errors.name.message}</span>
+                        ) : null}</p> : null}
+
+                        <div className="input_">
                             <label htmlFor="">Email</label>
-                            <input
-                                type="email"
-                                placeholder="you@example.com"
+                            <input 
+                                type="email" 
+                                placeholder="you@example.com" 
                                 {...register("email")}
                             />
                         </div>
@@ -90,9 +103,9 @@ export function SignIn() {
 
                         <div className="input_">
                             <label htmlFor="">Password</label>
-                            <input
-                                type="password"
-                                placeholder="*******"
+                            <input 
+                                type="password" 
+                                placeholder="*******" 
                                 {...register("password")}
                             />
                         </div>
@@ -101,12 +114,13 @@ export function SignIn() {
                         ) : null}</p> : null}
 
                         <button className="sign_in">
-                            Sign In
+                            <p>Continue</p>
+                            <img src={arrow}/>
                         </button>
                     </form>
 
                     <div className="signup_link">
-                        <span>Don't have an account? <a href="/sign-up">Get started</a></span>
+                        <span>Have an account? <a href="/sign-in">Sign in</a></span>
                     </div>
                 </div>
 

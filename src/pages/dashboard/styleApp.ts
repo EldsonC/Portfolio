@@ -137,6 +137,9 @@ export const StyleApp = styled.main`
         max-width: 100%;
         height: auto;
 
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+
         flex: 1;
 
         .background {
@@ -189,9 +192,15 @@ export const StyleApp = styled.main`
             }
     
             .header {
+                padding: 30px 0;
                 padding-right: 15px;
                 display: flex;
                 justify-content: space-between;
+
+                position: sticky;
+                top: 0px;
+
+                background-color: #171717;
     
                 button {
                     display: flex;
@@ -201,7 +210,7 @@ export const StyleApp = styled.main`
                 .admin_btns {
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 20px;
 
                     .admin_button {
                         display: flex;

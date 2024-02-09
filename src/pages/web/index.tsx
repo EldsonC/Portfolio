@@ -48,9 +48,11 @@ export function LandPage() {
                             <p>Sign in</p>
                         </button>
                     </NavLink>
-                    <button className="get_started">
-                        <p>Get started</p>
-                    </button>
+                    <NavLink to={"/sign-up"}>
+                        <button className="get_started">
+                            <p>Get started</p>
+                        </button>
+                    </NavLink>
                 </div>
             </header>
             <section className="hiro">

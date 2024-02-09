@@ -12,6 +12,7 @@ interface UserData {
     name?: string
     email?: string;
     password?: string;
+    code?: number;
 }
 
 interface TokenState {
@@ -50,12 +51,12 @@ export const AuthProvider: React.FC<InputProps> = ({ children }) => {
         return userData
     }, [])
 
-    const userRegister = useCallback(async ({ name, password, email }: UserData) => {
-
+    const userRegister = useCallback(async ({ name, password, email, code }: UserData) => {
         await api.post('/sign-up', {
             name,
             email,
-            password
+            password,
+            code
         })
 
     }, [])

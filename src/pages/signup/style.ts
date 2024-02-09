@@ -129,6 +129,11 @@ export const SignInStyle = styled.div `
                 width: 100%;
                 height: 44px;
 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
                 background-color: #222222;
                 border-radius: 5px;
                 border: 1px solid #2E2E2E;

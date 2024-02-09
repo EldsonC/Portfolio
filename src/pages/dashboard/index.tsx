@@ -16,7 +16,7 @@ import { CloseIcon } from "../../assets/icons/close";
 import { Tips } from "../../components/tips";
 import { api } from "../../services/api";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AddProject } from "../../components/add";
 import { WorkIcon } from "../../assets/icons/work";
 import { AddIcon } from "../../assets/icons/add";
@@ -25,6 +25,7 @@ import { AddModal } from "../../components/addmodal";
 import { stateAddproject, show as showAdd } from "../../redux/addproject";
 import { SettingsIcon } from "../../assets/icons/settings";
 import { BellIcon } from "../../assets/icons/bell";
+import { LogoutIcon } from "../../assets/icons/logout";
 
 interface ProjectProps {
   id: string;
@@ -38,6 +39,7 @@ interface ProjectProps {
 
 export function Dashboard() {
   const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const [loadState, setLoadState] = useState(true);
   const [spline, setSpline] = useState(false);
@@ -46,7 +48,7 @@ export function Dashboard() {
   const addProject = useSelector(stateAddproject);
   const [stateTip, setStateTip] = useState(false);
 
-  const [ type, setType ] = useState("");
+  const [type, setType] = useState("");
 
   const [projects, setProjects] = useState<ProjectProps[]>([]);
 
@@ -165,6 +167,13 @@ export function Dashboard() {
       })
   }
 
+  const logout = () => {
+    localStorage.removeItem("@MRYTOKEN:token");
+    localStorage.removeItem("@USER:token");
+
+    navigation("/sign-in")
+  }
+
   return (
     <>
       {addProject ? <AddModal typeSelect={type} /> : null}
@@ -193,6 +202,10 @@ export function Dashboard() {
               </div>
 
               <div className="admin_btns">
+                <button className="admin_button" onClick={logout}>
+                  <LogoutIcon />
+                </button>
+
                 <button className="admin_button">
                   <SettingsIcon />
                 </button>

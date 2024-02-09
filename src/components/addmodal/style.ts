@@ -40,6 +40,8 @@ export const AddModalStyle = styled.div`
                 font-size: 16px;
                 font-weight: 500;
                 color: #FFFFFF;
+
+                text-transform: lowercase;
             }
 
             .close {

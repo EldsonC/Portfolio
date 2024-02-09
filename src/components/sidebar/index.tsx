@@ -1,7 +1,7 @@
 import { RightIcon } from "../../assets/icons/right";
 import { SideBarStyle } from "./style";
 import logo from "../../assets/img/portfolio.png";
-import cat from "../../assets/img/logo.gif";
+// import cat from "../../assets/img/logo.gif";
 import { hide, show, stateSideBar } from "../../redux/sidebar";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -113,7 +113,7 @@ export function SideBar() {
                     </div>
                     <div className="bottom">
                         <div className="pet">
-                            <img src={cat} alt="" />
+                            {/* <img src={cat} alt="" /> */}
                         </div>
                         <div className="star">
                             <MagicIcon />

@@ -1,6 +1,6 @@
 import { StyleApp } from "./styleApp";
 import background from "../../assets/img/backpc.png";
-import { Card } from "../../components/card";
+import { CardDash } from "../../components/card-dash";
 import { Load } from "../../components/load";
 import { useEffect, useState } from "react";
 import { SideBar } from "../../components/sidebar";
@@ -27,6 +27,7 @@ import { SettingsIcon } from "../../assets/icons/settings";
 import { BellIcon } from "../../assets/icons/bell";
 
 interface ProjectProps {
+  id: string;
   cover: string;
   title: string;
   description: string;
@@ -43,9 +44,11 @@ export function Dashboard() {
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
   const addProject = useSelector(stateAddproject);
-  const [ stateTip, setStateTip ] = useState(false);
+  const [stateTip, setStateTip] = useState(false);
 
-  const [ projects, setProjects ] = useState<ProjectProps[]>([]);
+  const [ type, setType ] = useState("");
+
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
 
   const navigationToLink = (link: string) => {
     const newWindow = window.open(link, '_blank');
@@ -83,7 +86,7 @@ export function Dashboard() {
     };
 
     if (key.ctrlKey && key.key === "m") {
-      
+
       if (!spline) {
         const spline = document.querySelector("#spline") as HTMLDivElement;
         const content = document.querySelector("#content") as HTMLDivElement;
@@ -94,7 +97,7 @@ export function Dashboard() {
         content.classList.remove("show-content");
 
         spline.style.zIndex = "1000";
-        
+
 
         setSpline(true);
       } else {
@@ -107,7 +110,7 @@ export function Dashboard() {
         content.classList.remove("remove-content");
 
         setTimeout(() => {
-            content.classList.remove("show-content");
+          content.classList.remove("show-content");
         }, 2000)
 
         setSpline(false);
@@ -121,8 +124,9 @@ export function Dashboard() {
     setTimeout(() => {
       setLoadState(false)
     }, 5000);
-    
+
     const stateTip = localStorage.getItem("tipState");
+    const loggedUser = JSON.parse(localStorage.getItem("@USER:token") || "[]")
     if (stateTip) {
       setStateTip(false);
     }
@@ -132,12 +136,16 @@ export function Dashboard() {
       }
     }, 5000)
 
-    api.post("/get-projects", {
-      id_user: paramas.id_user
+    api.post("/get-projects-dash", {
+      id_user: paramas.id_user,
+      loggedInUserId: loggedUser.name
     })
-    .then((result: any) => {
-      setProjects(result.data)
-    })
+      .then((result: any) => {
+        setProjects(result.data)
+      })
+      .catch(() => {
+        window.location.href = `/port/dashboard/${loggedUser.name}`;
+      })
   }, [window.addEventListener("keydown", (key) => showKey(key))]);
 
   const showSidebarMobile = () => {
@@ -148,14 +156,23 @@ export function Dashboard() {
     }
   };
 
+  const deleteProject = (id: string) => {
+    api.post("/delete-project", {
+      id: id,
+    })
+      .then(() => {
+        window.location.reload();
+      })
+  }
+
   return (
     <>
-      {addProject ? <AddModal/> : null}
+      {addProject ? <AddModal typeSelect={type} /> : null}
       {stateSideMobile ? <SideBarMobile /> : null}
       {loadState ? <Load /> : null}
       <StyleApp>
         <div id="container_tip" className={stateTip ? "show-tip-container" : ""}>
-          {stateTip ? <Tips/> : null}
+          {stateTip ? <Tips /> : null}
         </div>
         <div className="back_spline-hide" id="spline">
           <spline-viewer url="https://prod.spline.design/ScUBWw-SBz68a3os/scene.splinecode"></spline-viewer>
@@ -177,11 +194,11 @@ export function Dashboard() {
 
               <div className="admin_btns">
                 <button className="admin_button">
-                  <SettingsIcon/>
+                  <SettingsIcon />
                 </button>
 
                 <button className="admin_button">
-                  <BellIcon/>
+                  <BellIcon />
                 </button>
               </div>
               <button onClick={() => showSidebarMobile()}>
@@ -204,10 +221,19 @@ export function Dashboard() {
             <div className="left">
               <h3>Top works</h3>
               <div className="container_cards">
+                <AddProject
+                  icon={<WorkIcon />}
+                  title="New work"
+                  action={() => {
+                    dispatch(showAdd())
+                    setType("Work")
+                  }}
+                />
                 {projects.map((project: ProjectProps, key) => {
                   if (project.type === "Work") {
                     return (
-                      <Card
+                      <CardDash
+                        deleteAction={() => deleteProject(project.id)}
                         key={key}
                         image={project.cover}
                         name={project.title}
@@ -218,21 +244,26 @@ export function Dashboard() {
                     );
                   }
                 })}
-                <AddProject
-                  icon={<WorkIcon/>}
-                  title="New work"
-                  action={() => dispatch(showAdd())}
-                />
+
               </div>
             </div>
 
             <div className="left right">
               <h3>Personal projects</h3>
               <div className="container_cards">
-              {projects.map((project: ProjectProps, key) => {
+                <AddProject
+                  icon={<AddIcon />}
+                  title="New personal"
+                  action={() => {
+                    dispatch(showAdd())
+                    setType("Personal")
+                  }}
+                />
+                {projects.map((project: ProjectProps, key) => {
                   if (project.type === "Personal") {
                     return (
-                      <Card
+                      <CardDash
+                        deleteAction={() => deleteProject(project.id)}
                         key={key}
                         image={project.cover}
                         name={project.title}
@@ -243,11 +274,6 @@ export function Dashboard() {
                     );
                   }
                 })}
-                <AddProject
-                  icon={<AddIcon/>}
-                  title="New personal"
-                  action={() => dispatch(showAdd())}
-                />
               </div>
             </div>
           </div>

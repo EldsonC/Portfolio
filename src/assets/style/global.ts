@@ -12,7 +12,7 @@ export default createGlobalStyle`
     }
 
     :root {
-        --background: #1D1D1D;
+        --background: #171717;
         --text-destaque-color: #ffffff;
         --text-grey-100: #3D3D3D;
         --text-grey-200: #5C5C5C;

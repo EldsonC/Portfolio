@@ -15,11 +15,15 @@ import { UploadIcon } from "../../assets/icons/upload";
 import { api } from "../../services/api";
 import { useParams } from "react-router-dom";
 
-export function AddModal() {
+interface AddProps {
+    typeSelect: string;
+}
+
+export function AddModal({typeSelect}:AddProps) {
     const dispatch = useDispatch();
     
     const [ name, setName ] = useState("");
-    const [ type, setType ] = useState("Personal");
+    const [ type, setType ] = useState(typeSelect);
     const [ cover, setCover ] = useState("");
     const [ repository, setRepository ] = useState("");
     const [ website, setWebsite ] = useState("");
@@ -55,8 +59,7 @@ export function AddModal() {
             website: website,
             type: type
         }).then(() => {
-            dispatch(hide())
-            
+            window.location.reload()
         }).catch((error: any) => {
             console.log(error)
         })
@@ -66,7 +69,7 @@ export function AddModal() {
         <AddModalStyle>
             <div className="form_container">
                 <header>
-                    <h4>Create new project</h4>
+                    <h4>Add new {typeSelect} project</h4>
                     <div className="close" onClick={() => dispatch(hide())}>
                         <CloseAddIcon />
                     </div>

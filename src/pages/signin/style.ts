@@ -160,15 +160,42 @@ export const SignInStyle = styled.div `
         }
     }
 
+    
     .illu_container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex: 1;
         height: 100%;
-
+        
         img {
             width: 750px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .login_container {
+            flex: 1;
+            width: 100%;
+
+            form {
+                .sign_in {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+        }
+
+        .illu_container {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .login_container {
+            height: 100vh;
         }
     }
 `;

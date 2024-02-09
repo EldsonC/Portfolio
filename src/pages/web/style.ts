@@ -89,6 +89,39 @@ export const LandPageStyle = styled.div `
 
     }
 
+    /* Media Header */
+    @media screen and (max-width: 600px) {
+        .hide-mob {
+            display: none;
+        }
+
+        .mob-small-hide {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .mob-small-hide {
+            display: none;
+        }
+        .mob-size {
+            .logo {
+                img {
+                    width: 90px;
+                }
+            }
+
+            button {
+                padding: 5px 10px;
+                p {
+                    font-size: 12px;
+                }
+            }
+
+
+        }
+    }
+
     .hiro {
         padding-bottom: 121px;
         width: 1046px;
@@ -197,7 +230,36 @@ export const LandPageStyle = styled.div `
                 }
             }
         }
+    }
 
+    /* Media Hiro */
+    @media screen and (max-width: 600px) {
+        .hiro {
+            width: 95%;
+        }
+
+        .mob-size {
+            h1, .p-hiro {
+                max-width: 90%;
+                font-size: 30px;
+            }
+
+            .p-hiro {
+                font-size: 16px;
+            }
+
+            .illustration {
+                img {
+                    width: 95%;
+                }
+
+                button {
+                    img {
+                        width: 30px;
+                    }
+                }
+            }
+        }
     }
 
     .features {
@@ -242,6 +304,59 @@ export const LandPageStyle = styled.div `
         }
     }
 
+     /* Media Features */
+     @media screen and (max-width: 600px) {
+        .features {
+            padding-bottom: 50px;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .card {
+                width: 100%;
+            }
+        }
+    }
+
+    .video_container {
+        padding-bottom: 100px;
+        width: 1046px;
+        
+        .video {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    /* Media  Video */
+    @media screen and (max-width: 600px) {
+        .video_container {
+            margin-bottom: 100px;
+            padding-bottom: 0px;
+
+            width: 90%;
+            height: 300px;
+
+            background-color: #1b1b1b;
+            border-radius: 10px;
+
+            .video {
+                height: 300px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .video_container {
+            height: 250px;
+
+            .video {
+                height: 250px;
+            }
+        }
+    }
+
     .trusted {
         padding-bottom: 118.6px;
         width: 1140px;
@@ -264,8 +379,28 @@ export const LandPageStyle = styled.div `
         }
     }
 
+    /* Media  Trusted */
+    @media screen and (max-width: 600px) {
+        .trusted {
+            width: 100%;
+
+            .companies {
+                padding-left: 20px;
+                width: calc(100% - 20px);
+
+                scroll-snap-type: x mandatory;
+                overflow-x: scroll;
+                scroll-behavior: smooth;
+
+                img {
+                    scroll-snap-align: center;
+                }
+            }
+        }
+    }
+
     .profile {
-        padding-bottom: 250px;
+        padding-bottom: 150px;
         width: 1108px;
         display: flex;
         align-items: center;
@@ -335,6 +470,26 @@ export const LandPageStyle = styled.div `
                     margin-bottom: 0;
                     color: white;
                 }
+            }
+        }
+    }
+
+    /* Media  Profile */
+    @media screen and (max-width: 600px) {
+        .profile {
+            padding-left: 20px;
+            width: calc(100% - 20px);
+            min-height: 267px;
+            
+            scroll-snap-type: x mandatory;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+
+            .card {
+                min-width: calc(204px - 48px);
+                min-height: calc(264px - 56px);
+                
+                scroll-snap-align: center;
             }
         }
     }

@@ -1,4 +1,4 @@
-import { SignInStyle } from "./style";
+import { SignInStyle } from "../signin/style";
 import illu from "../../assets/img/login_illu.png";
 import { LogoSignIcon } from "../../assets/icons/logo-sign";
 import { GoogleIcon } from "../../assets/icons/google";

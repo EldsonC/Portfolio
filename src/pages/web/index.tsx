@@ -18,21 +18,23 @@ import company4 from "../../assets/img/company4.png";
 import company5 from "../../assets/img/company5.png";
 import company6 from "../../assets/img/company6.png";
 
+// import video from "../../assets/videos/video-intro-template.mp4";
+
 import { NavLink } from "react-router-dom";
 
 export function LandPage() {
     return (
         <LandPageStyle>
             <header>
-                <div className="left">
+                <div className="left mob-size">
                     <div className="logo">
                         <img src={logo} alt="" />
                     </div>
                     <ul>
-                        <li>
+                        <li className="hide-mob">
                             <p>Features</p>
                         </li>
-                        <li>
+                        <li className="hide-mob">
                             <p>Developers</p>
                         </li>
                         {/* <li>
@@ -41,10 +43,10 @@ export function LandPage() {
                     </ul>
                 </div>
 
-                <div className="right">
-                    <img src={github} alt="" />
+                <div className="right mob-size">
+                    <img src={github} alt="" className="hide-mob"/>
                     <NavLink to={"/sign-in"}>
-                        <button>
+                        <button className="mob-small-hide">
                             <p>Sign in</p>
                         </button>
                     </NavLink>
@@ -55,10 +57,10 @@ export function LandPage() {
                     </NavLink>
                 </div>
             </header>
-            <section className="hiro">
+            <section className="hiro mob-size">
                 <h1>Show Your Work To The World With <span>Powtfolio</span></h1>
-                <p>Create your portfolio quickly and easily with Powtfolio, share your work with the world, and build your network.</p>
-                
+                <p className="p-hiro">Create your portfolio quickly and easily with Powtfolio, share your work with the world, and build your network.</p>
+
                 <div className="btns_hiro">
                     <button>
                         <p>Learning more</p>
@@ -101,6 +103,10 @@ export function LandPage() {
                 </div>
             </section>
 
+            <section className="video_container">
+            <iframe className="video" width="100%" height="723px" src="https://www.youtube.com/embed/k2Ln-k0H7hk" title="Powtfy" allow="autoplay; loop;"></iframe>
+            </section>
+
             <section className="trusted">
                 <p>Trusted by teams at</p>
                 <div className="companies">
@@ -124,7 +130,7 @@ export function LandPage() {
 
                     <button>
                         <p>See profile</p>
-                        <img src={arrowWhite}/>
+                        <img src={arrowWhite} />
                     </button>
                 </div>
                 <div className="card">
@@ -138,7 +144,7 @@ export function LandPage() {
 
                     <button>
                         <p>See profile</p>
-                        <img src={arrowWhite}/>
+                        <img src={arrowWhite} />
                     </button>
                 </div>
                 <div className="card">
@@ -152,7 +158,7 @@ export function LandPage() {
 
                     <button>
                         <p>See profile</p>
-                        <img src={arrowWhite}/>
+                        <img src={arrowWhite} />
                     </button>
                 </div>
                 <div className="card">
@@ -166,7 +172,7 @@ export function LandPage() {
 
                     <button>
                         <p>See profile</p>
-                        <img src={arrowWhite}/>
+                        <img src={arrowWhite} />
                     </button>
                 </div>
                 <div className="card">
@@ -180,7 +186,7 @@ export function LandPage() {
 
                     <button>
                         <p>See profile</p>
-                        <img src={arrowWhite}/>
+                        <img src={arrowWhite} />
                     </button>
                 </div>
             </section>

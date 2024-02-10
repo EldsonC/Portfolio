@@ -3,6 +3,8 @@ import { LandPageStyle } from "./style";
 import logo from "../../assets/img/logoweb.png";
 import github from "../../assets/img/github.png";
 import illustration_1 from "../../assets/img/illustration_1.png";
+import illustration_2 from "../../assets/img/illustration_2.png";
+import illustration_3 from "../../assets/img/illustration_3.png";
 import lock from "../../assets/img/lock.png";
 import arrowRight from "../../assets/img/arrowRight.png";
 import arrowWhite from "../../assets/img/arrowWhite.png";
@@ -32,10 +34,14 @@ export function LandPage() {
                     </div>
                     <ul>
                         <li className="hide-mob">
-                            <p>Features</p>
+                            <a href="#features">
+                                <p>Features</p>
+                            </a>
                         </li>
                         <li className="hide-mob">
-                            <p>Developers</p>
+                            <a href="#trusted">
+                                <p>Developers</p>
+                            </a>
                         </li>
                         {/* <li>
                             <p>Pricing</p>
@@ -83,31 +89,41 @@ export function LandPage() {
                     </button>
                 </div>
             </section>
-            <section className="features">
+
+            <section className="features" id="features">
                 <div className="card">
                     <img src={book} alt="" />
-                    <h4>Employee Index</h4>
-                    <p>Stay on top of your growing company by making it easy to search, and get to know, your teammates.</p>
+                    <h4>VisitAlert</h4>
+                    <p>Receive instant alerts for portfolio visits, stay connected effortlessly.</p>
                 </div>
 
                 <div className="card">
                     <img src={assets} alt="" />
-                    <h4>Brand assets</h4>
-                    <p>Keep your visuals consistently on-brand with easily accessible colors, icons, screenshots and more, for the whole team.</p>
+                    <h4>ProfileLinkShare</h4>
+                    <p>Easily share your public portfolio link, expand your online presence effortlessly.</p>
                 </div>
 
                 <div className="card">
                     <img src={report} alt="" />
-                    <h4>Report bugs</h4>
-                    <p>Set up template bug report forms to give timely and actionable feedback on features and projects in development.</p>
+                    <h4>EasyProjectAdd</h4>
+                    <p>Add and manage your projects with simplicity and ease.</p>
                 </div>
             </section>
 
-            <section className="video_container">
-            <iframe className="video" width="100%" height="723px" src="https://www.youtube.com/embed/k2Ln-k0H7hk" title="Powtfy" allow="autoplay; loop;"></iframe>
+            <section className="hiro mob-size">
+                <h1>Add your projects</h1>
+                <p className="p-hiro">Simplify project presentation with 'Add Your Projects.' Effortlessly showcase your work and achievements, focusing on what matters most – your creative contributions.</p>
+
+                <div className="illustration">
+                    <img src={illustration_2} alt="" />
+                </div>
             </section>
 
-            <section className="trusted">
+            {/* <section className="video_container">
+            <iframe className="video" width="100%" height="723px" src="https://www.youtube.com/embed/k2Ln-k0H7hk" title="Powtfy" allow="autoplay; loop;"></iframe>
+            </section> */}
+
+            <section className="trusted" id="trusted">
                 <p>Trusted by teams at</p>
                 <div className="companies">
                     <img src={company1} alt="" />
@@ -188,6 +204,15 @@ export function LandPage() {
                         <p>See profile</p>
                         <img src={arrowWhite} />
                     </button>
+                </div>
+            </section>
+
+            <section className="hiro mob-size" style={{paddingBottom: "100px"}}>
+                <h1>Show your skills</h1>
+                <p className="p-hiro">Highlight your expertise effortlessly with 'Show Your Skills.' Showcase your talents, achievements, and capabilities seamlessly, allowing your skills to shine and make a lasting impression.</p>
+
+                <div className="illustration">
+                    <img src={illustration_3} alt="" />
                 </div>
             </section>
         </LandPageStyle>

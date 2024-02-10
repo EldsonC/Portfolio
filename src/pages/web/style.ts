@@ -6,6 +6,8 @@ export const LandPageStyle = styled.div `
 
     overflow-y: auto;
 
+    scroll-behavior: smooth;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,12 +31,19 @@ export const LandPageStyle = styled.div `
 
     header {
         padding-top: 44px;
+        padding-bottom: 20px;
         width: 1273px;
         max-width: 90%;
 
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        /* position: sticky;
+        top: 0px; */
+
+        background: #171717ff;
+        
 
         .left {
             display: flex;
@@ -123,7 +132,6 @@ export const LandPageStyle = styled.div `
     }
 
     .hiro {
-        padding-bottom: 121px;
         width: 1046px;
 
         display: flex;
@@ -263,7 +271,7 @@ export const LandPageStyle = styled.div `
     }
 
     .features {
-        padding-bottom: 119px;
+        padding-top: 100px;
         width: 1140px;
 
         display: flex;
@@ -358,7 +366,7 @@ export const LandPageStyle = styled.div `
     }
 
     .trusted {
-        padding-bottom: 118.6px;
+        padding-top: 118.6px;
         width: 1140px;
 
         display: flex;
@@ -400,7 +408,7 @@ export const LandPageStyle = styled.div `
     }
 
     .profile {
-        padding-bottom: 150px;
+        padding-top: 50px;
         width: 1108px;
         display: flex;
         align-items: center;

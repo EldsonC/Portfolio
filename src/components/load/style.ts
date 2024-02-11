@@ -16,9 +16,30 @@ export const StyleLoad = styled.div `
     z-index: 1500;
 
     .conteiner_load {
-        img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        .logo-item {
             /* width: 200px; */
-            animation: animationLoad 5s infinite;
+            animation: animationLoad .5s infinite alternate-reverse;
+        }
+
+        .progress_container {
+            width: 150px;
+            height: 7px;
+
+            border-radius: 10px;
+            background-color: #272727;
+            border: 1px solid #4e4e4e;
+
+            .progress {
+                width: 50%;
+                height: 100%;
+
+                background-color: #5f5f5f;
+                border-radius: 10px;
+            }
         }
     }
 
@@ -27,21 +48,12 @@ export const StyleLoad = styled.div `
     }
 
     @keyframes animationLoad {
-        0% {
-            /* opacity: 0; */
+        from {
+            transform: scale(1);
         }
 
-        20% {
-            rotate: 90deg;
-
-        }
-
-        40% {
-            rotate: 180deg;
-        }
-
-        100% {
-            rotate: 360deg;
+        to {
+            transform: scale(1.2);
         }
     }
 

@@ -1,8 +1,8 @@
 import { StyleLoad } from "./style";
-import logo from "../../assets/img/portfolio.png";
 import { useEffect } from "react";
 // import { api } from "../../services/api";
 import { useParams } from "react-router-dom";
+import { LoadLogoIcon } from "../../assets/icons/logoload";
 
 export function Load() {
     const params = useParams();
@@ -90,7 +90,12 @@ export function Load() {
     return (
         <StyleLoad id="load">
             <div className="conteiner_load">
-                <img src={logo} width={80} alt="logo" />
+                <div className="logo-item">
+                    <LoadLogoIcon/>
+                </div>
+                {/* <div className="progress_container">
+                    <div className="progress"></div>
+                </div> */}
             </div>
         </StyleLoad>
     );

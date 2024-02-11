@@ -324,11 +324,32 @@ export const StyleApp = styled.main`
             .left {
                 width: 100%;
     
-                h3 {
-                    color: var(--text-destaque-color);
-                    font-size: 1rem;
-                    font-weight: 500;
-                    line-height: normal;
+                .tag_title {
+                    padding: 10px 20px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    background-color: #1f1f1f;
+                    border-radius: 40px;
+
+                    border: 1px solid #383838;
+
+                    h3 {
+                        color: #b3b3b3;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+                .work {
+                    width: 90px;
+                }
+
+                .personal {
+                    width: 120px;
                 }
     
                 .container_cards {

@@ -43,9 +43,9 @@ export function Port() {
   const [spline, setSpline] = useState(false);
   const stateSide = useSelector(stateSideBar);
   const stateSideMobile = useSelector(statesidebarmobile);
-  const [ stateTip, setStateTip ] = useState(false);
+  const [stateTip, setStateTip] = useState(false);
 
-  const [ projects, setProjects ] = useState<ProjectProps[]>([]);
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
 
   const navigationToLink = (link: string) => {
     const newWindow = window.open(link, '_blank');
@@ -83,7 +83,7 @@ export function Port() {
     };
 
     if (key.ctrlKey && key.key === "m") {
-      
+
       if (!spline) {
         const spline = document.querySelector("#spline") as HTMLDivElement;
         const content = document.querySelector("#content") as HTMLDivElement;
@@ -94,7 +94,7 @@ export function Port() {
         content.classList.remove("show-content");
 
         spline.style.zIndex = "1000";
-        
+
 
         setSpline(true);
       } else {
@@ -107,7 +107,7 @@ export function Port() {
         content.classList.remove("remove-content");
 
         setTimeout(() => {
-            content.classList.remove("show-content");
+          content.classList.remove("show-content");
         }, 2000)
 
         setSpline(false);
@@ -123,7 +123,7 @@ export function Port() {
     setTimeout(() => {
       setLoadState(false)
     }, 5000);
-    
+
     const stateTip = localStorage.getItem("tipState");
     if (stateTip) {
       setStateTip(false);
@@ -137,10 +137,10 @@ export function Port() {
     api.post("/get-projects", {
       id_user: paramas.id_user
     })
-    .then((result: any) => {
-      setProjects(result.data)
-    })
-   
+      .then((result: any) => {
+        setProjects(result.data)
+      })
+
   }, [window.addEventListener("keydown", (key) => showKey(key))]);
 
   const showSidebarMobile = () => {
@@ -164,7 +164,7 @@ export function Port() {
       {loadState ? <Load /> : null}
       <StyleApp>
         <div id="container_tip" className={stateTip ? "show-tip-container" : ""}>
-          {stateTip ? <Tips/> : null}
+          {stateTip ? <Tips /> : null}
         </div>
         <div className="back_spline-hide" id="spline">
           <spline-viewer url="https://prod.spline.design/ScUBWw-SBz68a3os/scene.splinecode"></spline-viewer>
@@ -212,7 +212,9 @@ export function Port() {
 
           <div className="projects_container">
             <div className="left">
-              <h3>Top works</h3>
+              <div className="tag_title work">
+                <h3>Top works</h3>
+              </div>
               <div className="container_cards">
                 {projects.map((project: ProjectProps, key) => {
                   if (project.type === "Work") {
@@ -232,7 +234,9 @@ export function Port() {
             </div>
 
             <div className="left right">
-              <h3>Personal projects</h3>
+              <div className="tag_title personal">
+                <h3>Personal projects</h3>
+              </div>
               <div className="container_cards">
                 {projects.map((personalProject: ProjectProps, key) => {
                   if (personalProject.type === "Personal") {

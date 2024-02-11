@@ -257,7 +257,9 @@ export function Dashboard() {
 
           <div className="projects_container">
             <div className="left">
-              <h3>Top works</h3>
+              <div className="tag_title work">
+                <h3>Top works</h3>
+              </div>
               <div className="container_cards">
                 <AddProject
                   icon={<WorkIcon />}
@@ -287,7 +289,9 @@ export function Dashboard() {
             </div>
 
             <div className="left right">
-              <h3>Personal projects</h3>
+              <div className="tag_title personal">
+                <h3>Personal projects</h3>
+              </div>
               <div className="container_cards">
                 <AddProject
                   icon={<AddIcon />}

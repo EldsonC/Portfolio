@@ -192,7 +192,6 @@ export const StyleApp = styled.main`
             }
     
             .header {
-                padding: 30px 0;
                 padding-right: 15px;
                 display: flex;
                 justify-content: space-between;
@@ -232,6 +231,7 @@ export const StyleApp = styled.main`
                     font-weight: 600;
                     
                     span {
+                        font-size: 20px;
                         color: var(--text-grey-100);
                         font-weight: 300;
                     }
@@ -249,8 +249,38 @@ export const StyleApp = styled.main`
                 }
             }
     
-    
-    
+            .public_info {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .info {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .tag_dash {
+                        padding: 5px 10px;
+
+                        background-color: #202020;
+                        border-radius: 20px;
+
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        cursor: pointer;
+                    }
+                }
+            }
+
             .container_buttons {
                 display: flex;
                 gap: 0.625rem;

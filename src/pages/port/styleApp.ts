@@ -207,6 +207,7 @@ export const StyleApp = styled.main`
                     font-weight: 600;
                     
                     span {
+                        font-size: 20px;
                         color: var(--text-grey-100);
                         font-weight: 300;
                     }

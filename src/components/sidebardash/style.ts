@@ -81,7 +81,7 @@ export const SideBarStyle = styled.div`
           background-color: transparent;
           border-radius: 10px;
   
-          /* cursor: pointer; */
+          cursor: pointer;
   
           p {
             color: white;
@@ -93,13 +93,13 @@ export const SideBarStyle = styled.div`
             display: none;
           }
   
-          /* &:hover {
+          &:hover {
             background-color: #202123;
   
             span {
               display: flex;
             }
-          } */
+          }
         }
       }
 

@@ -14,7 +14,7 @@ export const AddModalStyle = styled.div`
 
     z-index: 1500;
 
-    background-color: #0000009c;
+    background-color: #000000de;
 
     animation: AddAnimation .5s forwards;
 

@@ -5,11 +5,6 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export function Load() {
-    const removeLoad = () => {
-        const loadElement = document.querySelector("#load") as HTMLDivElement;
-        loadElement.classList.add("removeLoad");
-    };
-
     const params = useParams();
 
     // const getOperatingSystem = (): string => {
@@ -31,10 +26,6 @@ export function Load() {
     // };
 
     useEffect(() => {
-        setTimeout(() => {
-            removeLoad();
-        }, 3000);
-
         const titlePage = document.querySelector("#title") as HTMLTitleElement;
         titlePage.innerText = `Portifolio | ${params.id_user}`
 
@@ -92,7 +83,6 @@ export function Load() {
         //         console.log(err);
         //     });
         // }
-
 
         localStorage.setItem("sidebar", JSON.stringify(false));
     }, []);

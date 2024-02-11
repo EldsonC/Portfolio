@@ -3,7 +3,7 @@ import background from "../../assets/img/backpc.png";
 import { CardDash } from "../../components/card-dash";
 import { Load } from "../../components/load";
 import { useEffect, useState } from "react";
-import { SideBar } from "../../components/sidebar";
+
 import { MenuIcon } from "../../assets/icons/menu";
 import { hide, show, stateSideBar } from "../../redux/sidebar";
 import { hide as hideMobile, show as showMobile } from "../../redux/sidebarMobile";
@@ -26,6 +26,8 @@ import { stateAddproject, show as showAdd } from "../../redux/addproject";
 import { SettingsIcon } from "../../assets/icons/settings";
 import { BellIcon } from "../../assets/icons/bell";
 import { LogoutIcon } from "../../assets/icons/logout";
+import { CopyIcon } from "../../assets/icons/copy";
+import { SideBarDash } from "../../components/sidebardash";
 
 interface ProjectProps {
   id: string;
@@ -52,12 +54,12 @@ export function Dashboard() {
 
   const [projects, setProjects] = useState<ProjectProps[]>([]);
 
-  const navigationToLink = (link: string) => {
-    const newWindow = window.open(link, '_blank');
-    if (newWindow) {
-      newWindow.opener = null;
-    }
-  };
+  // const navigationToLink = (link: string) => {
+  //   const newWindow = window.open(link, '_blank');
+  //   if (newWindow) {
+  //     newWindow.opener = null;
+  //   }
+  // };
 
 
   const showSidebar = () => {
@@ -123,26 +125,22 @@ export function Dashboard() {
   const paramas = useParams();
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoadState(false)
-    }, 5000);
 
     const stateTip = localStorage.getItem("tipState");
     const loggedUser = JSON.parse(localStorage.getItem("@USER:token") || "[]")
     if (stateTip) {
       setStateTip(false);
     }
-    setTimeout(() => {
-      if (!stateTip) {
-        setStateTip(true);
-      }
-    }, 5000)
 
     api.post("/get-projects-dash", {
       id_user: paramas.id_user,
       loggedInUserId: loggedUser.name
     })
       .then((result: any) => {
+        setLoadState(false);
+        if (!stateTip) {
+          setStateTip(true);
+        }
         setProjects(result.data)
       })
       .catch(() => {
@@ -188,7 +186,7 @@ export function Dashboard() {
         </div>
 
         <div id="side" className={stateSide ? "side" : "side-hide"}>
-          <SideBar />
+          <SideBarDash />
         </div>
         <div className="content" id="content">
           <div className="background">
@@ -197,7 +195,7 @@ export function Dashboard() {
           <div className="hiro_container">
             <div className="header">
               <div className="head_cont">
-                <h1>{paramas.id_user} <span>Prev</span></h1>
+                <h1>{paramas.id_user} <span>admin</span></h1>
                 <label className="mob-game">CTRL+M</label>
               </div>
 
@@ -218,16 +216,36 @@ export function Dashboard() {
                 {stateSideMobile ? <CloseIcon /> : <MenuIcon />}
               </button>
             </div>
+            <div className="public_info">
+              <div className="info">
+                <div className="tag_dash">
+                  <p>https://powtfy.com/port/{paramas.id_user}</p>
+                </div>
+                <button>
+                  <CopyIcon/>
+                </button>
+              </div>
+
+              <div className="info">
+                <div className="tag_dash">
+                  <p>Visits: 19</p>
+                </div>
+
+                <div className="tag_dash">
+                  <p>Github clicks: 30</p>
+                </div>
+              </div>
+            </div>
             <div className="container_buttons">
-              <button className="button" onClick={() => navigationToLink("https://github.com/EldsonC")}>
-                <p className="p-btn">Github</p>
+              <button className="button">
+                <p className="p-btn">Edit profile</p>
               </button>
 
-              <button className="button secundary" onClick={() => navigationToLink("https://www.linkedin.com/in/eldsonc/")}>
-                <p className="p-btn p-btn-secundary">Linkedin</p>
+              <button className="button secundary">
+                <p className="p-btn p-btn-secundary">Share</p>
               </button>
             </div>
-            <p>Meet Eldson, a technology enthusiast with a passion for innovation and a constant eagerness for new challenges.</p>
+            {/* <p>Meet Eldson, a technology enthusiast with a passion for innovation and a constant eagerness for new challenges.</p> */}
           </div>
 
           <div className="projects_container">

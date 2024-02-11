@@ -64,7 +64,7 @@ export function LandPage() {
                 </div>
             </header>
             <section className="hiro mob-size">
-                <h1>Show Your Work To The World With <span>Powtfolio</span></h1>
+                <h1>Show Your Work To The World With <span>Powtfy</span></h1>
                 <p className="p-hiro">Create your portfolio quickly and easily with Powtfolio, share your work with the world, and build your network.</p>
 
                 <div className="btns_hiro">

@@ -211,10 +211,10 @@ export function Dashboard() {
                 <button className="admin_button">
                   <BellIcon />
                 </button>
+                <button onClick={() => showSidebarMobile()}>
+                  {stateSideMobile ? <CloseIcon /> : <MenuIcon />}
+                </button>
               </div>
-              <button onClick={() => showSidebarMobile()}>
-                {stateSideMobile ? <CloseIcon /> : <MenuIcon />}
-              </button>
             </div>
             <div className="public_info">
               <div className="info">

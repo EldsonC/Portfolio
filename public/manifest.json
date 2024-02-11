@@ -1,0 +1,38 @@
+{
+  "background_color": "#171717",
+  "description": "Powtfy is more than just a digital portfolio; it's a powerful tool to establish an impressive online presence and stand out in the development community. Whether you're a beginner or an experienced developer, Powtfy is the key to showcasing your work innovatively and seizing exciting opportunities. Create your Powtfy today and transform your online presence in the world of software development.",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "powtfy",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "powtfy",
+  "start_url": "/sign-in",
+  "theme_color": "#DA01ED",
+  "icons": [
+    {
+      "src": "/portfolio.png",
+      "type": "image/png",
+      "sizes": "81x81"
+    },
+    {
+      "src": "/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "lang": "en",
+  "display_override": [
+    "fullscreen",
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "categories": [
+    "business",
+    "personalization",
+    "productivity",
+    "social",
+    "utilities"
+  ],
+  "id": "fef05299-2fa7-47b1-a98d-b02f54d9efc8"
+}

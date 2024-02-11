@@ -22,7 +22,7 @@ export const SideBarStyle = styled.div`
     flex-direction: column;
     justify-content: space-between;
     
-    background-color: #2e2e2e44;
+    background-color: #2e2e2eff;
     animation: sideAnimationBar 1s forwards;
     
     .remove-side {

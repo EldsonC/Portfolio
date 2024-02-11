@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const SideBarStyle = styled.div`
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: 100vh;
 
   position: fixed;
@@ -22,7 +21,7 @@ export const SideBarStyle = styled.div`
     flex-direction: column;
     justify-content: space-between;
     
-    background-color: #000000;
+    background-color: #2e2e2eff;
     animation: sideAnimationBar 1s forwards;
     
     .remove-side {
@@ -46,7 +45,7 @@ export const SideBarStyle = styled.div`
         position: sticky;
         top: 0px;
 
-        background-color: #000000;
+        background-color: transparent;
 
         p {
           color: #d1d1d1;
@@ -169,6 +168,15 @@ export const SideBarStyle = styled.div`
     }
   }
 
+  .close_area {
+    flex: 1;
+    height: 100%;
+
+    background-color: #0000009a;
+
+    animation: sideAnimationClose 3s;
+  }
+
   .right_btn {
     display: none;
   }
@@ -224,11 +232,22 @@ export const SideBarStyle = styled.div`
 
   @keyframes sideAnimationRemove {
     from {
-        width: 250px;
+      width: 250px;
     }
 
     to {
         width: 30px;
+    }
+
+  }
+
+  @keyframes sideAnimationClose {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
 
   }

@@ -302,6 +302,23 @@ export const StyleApp = styled.main`
                 }
             }
 
+            @media screen and (max-width: 600px) {
+                .public_info {
+                    .info {
+                        width: 100%;
+                        overflow-x: scroll;
+
+                        scroll-snap-type: x mandatory;
+
+                        .tag_dash {
+                            min-width: 125px;
+
+                            scroll-snap-align: start;
+                        }
+                    }
+                }
+            }
+
             .container_buttons {
                 display: flex;
                 gap: 0.625rem;

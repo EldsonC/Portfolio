@@ -222,16 +222,23 @@ export function Dashboard() {
                   <p>https://powtfy.com/port/{paramas.id_user}</p>
                 </div>
                 <button>
-                  <CopyIcon/>
+                  <CopyIcon />
                 </button>
               </div>
 
               <div className="info">
                 <div className="tag_dash">
-                  <p>Visits: 19</p>
+                  <div className="mark-powtfy"></div>
+                  <p>Powtfy visits: 19</p>
                 </div>
 
                 <div className="tag_dash">
+                  <div className="mark-linkedin"></div>
+                  <p>Linkedin clicks: 10</p>
+                </div>
+
+                <div className="tag_dash">
+                  <div className="mark-github"></div>
                   <p>Github clicks: 30</p>
                 </div>
               </div>

@@ -261,9 +261,30 @@ export const StyleApp = styled.main`
 
                     .tag_dash {
                         padding: 5px 10px;
+                        
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
 
                         background-color: #202020;
                         border-radius: 20px;
+
+                        .mark-powtfy, .mark-linkedin, .mark-github{
+                            width: 8px;
+                            height: 8px;
+
+                            border-radius: 50%;
+
+                            background-color: #b701cf;
+                        }
+
+                        .mark-linkedin {
+                            background-color: #0195cf;
+                        }
+
+                        .mark-github {
+                            background-color: #d3d3d3;
+                        }
 
                         p {
                             font-size: 12px;
